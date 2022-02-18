@@ -11,11 +11,12 @@ var jumps = MAX_JUMPS
 var motion = Vector2()
 var wallJump = 400
 var jumpWall = 400
+#var soup = 5
 
 # Did this get to github?
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	#print(soup)
 	motion.y += GRAVITY
 	var friction = false
 	
