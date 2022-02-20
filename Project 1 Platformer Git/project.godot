@@ -8,21 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://StateMachine.gd"
-} ]
-_global_script_class_icons={
-"StateMachine": ""
-}
-
 [application]
 
 config/name="Project 1 Platformer"
 run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerVars="*res://PlayerVars.gd"
 
 [display]
 

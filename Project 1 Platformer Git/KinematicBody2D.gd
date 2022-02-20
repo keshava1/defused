@@ -7,16 +7,20 @@ const JUMP = -500
 const ACCELERATION = 50
 const MAX_JUMPS = 2
 const DEATH_HEIGHT = 1000
+const SPRING = -1000
 var jumps = MAX_JUMPS
 var motion = Vector2()
-var wallJump = 400
-var jumpWall = 400
+var walljumpx = 400
+var wallJumpY = 400
 #var soup = 5
 
 # Did this get to github?
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	#print(soup)
+	
+	motion = PlayerVars.motion
+	jumps = PlayerVars.jumps
+	
 	motion.y += GRAVITY
 	var friction = false
 	
@@ -34,30 +38,28 @@ func _physics_process(delta):
 		friction = true
 		$Sprite.play("Idle")
 		
+	#print(motion.x)
 	if is_on_floor() or nextToWall():
 		if is_on_floor():
 			jumps = MAX_JUMPS
+		if friction == true:
+			motion.x = lerp(motion.x, 0,0.6);
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
 			
-			
-			
-			if not is_on_floor() and nextToRightWall():
-				motion.x -= wallJump
-				motion.y = -jumpWall
-				
-			elif (not is_on_floor() and nextToLeftWall()):
-				motion.x += wallJump
-				motion.y = -jumpWall
+			if (not is_on_floor()) and nextToRightWall():
+				motion.x = -walljumpx
+				motion.y = -wallJumpY
+			elif (not is_on_floor()) and nextToLeftWall():
+				motion.x = walljumpx
+				motion.y = -wallJumpY
 			else:
 				motion.y = JUMP
 				jumps -= 1
 		if nextToWall() and motion.y > MAX_SPEED / 2:
 			motion.y = MAX_SPEED / 2
-		if friction == true:
-			motion.x = lerp(motion.x, 0,1);
 
 	else:
-		if Input.is_action_just_pressed("ui_up") && jumps > 0:
+		if Input.is_action_just_pressed("ui_up") and jumps > 0:
 			motion.y = JUMP * 0.75
 			jumps -= 1
 		if motion.y < 0 && jumps >= 1:
@@ -67,10 +69,10 @@ func _physics_process(delta):
 		else:
 			$Sprite.play("Fall")
 		if friction == true:
-			motion. x = lerp(motion.x, 0, 0.5)
+			motion. x = lerp(motion.x, 0, 0.1)
 	motion = move_and_slide(motion, UP)
-	
-	pass
+	PlayerVars.motion = motion
+	PlayerVars.jumps = jumps
 
 func nextToWall():
 	return nextToRightWall() or nextToLeftWall()
@@ -83,3 +85,8 @@ func nextToLeftWall():
 
 func respawn():
 	get_tree().reload_current_scene()
+
+
+#func _on_Spring_body_entered(body):
+#	if body.name == "Player":
+#		motion.y = SPRING
