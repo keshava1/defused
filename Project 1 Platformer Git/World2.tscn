@@ -17,105 +17,105 @@ position = Vector2( -994, 479 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2080, 288 )
-next_world = "res://World.tscn"
+next_world = "res://World3.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( -262107, 0, 5, -131090, 0, 1, -131089, 0, 2, -196572, 0, 1, -196571, 0, 11, -65554, 0, 131073, -65553, 0, 131074, -131036, 0, 131073, -131035, 0, 131074, -18, 0, 131073, -17, 0, 131074, -65500, 0, 131073, -65499, 0, 131074, 65518, 0, 131073, 65519, 0, 131074, 36, 0, 131073, 37, 0, 131074, 131054, 0, 131073, 131055, 0, 131074, 65572, 0, 131073, 65573, 0, 131074, 196590, 0, 131073, 196591, 0, 131074, 131072, 0, 1, 131073, 0, 2, 131081, 0, 1, 131082, 0, 2, 131108, 0, 131073, 131109, 0, 131074, 262126, 0, 131073, 262127, 0, 131074, 262139, 0, 5, 196608, 0, 65537, 196609, 0, 65538, 196614, 0, 1, 196615, 0, 2, 196617, 0, 65537, 196618, 0, 65538, 196620, 0, 1, 196621, 0, 2, 196644, 0, 131073, 196645, 0, 131074, 327662, 0, 131073, 327663, 0, 131074, 327675, 0, 131077, 327677, 0, 1, 327678, 0, 2, 262147, 0, 1, 262148, 0, 2, 262150, 0, 65537, 262151, 0, 65538, 262156, 0, 65537, 262157, 0, 65538, 262159, 0, 1, 262160, 0, 2, 262163, 0, 196608, 262164, 0, 196610, 262169, 0, 196608, 262170, 0, 196610, 262180, 0, 131073, 262181, 0, 131074, 393198, 0, 131073, 393199, 0, 131074, 393213, 0, 131073, 393214, 0, 131074, 327683, 0, 131073, 327684, 0, 131074, 327695, 0, 65537, 327696, 0, 65538, 327711, 0, 1, 327712, 0, 65536, 327713, 0, 2, 327716, 0, 131073, 327717, 0, 131074, 458734, 0, 131073, 458735, 0, 131074, 458743, 0, 196608, 458744, 0, 196610, 458749, 0, 131073, 458750, 0, 131074, 393219, 0, 131073, 393220, 0, 131074, 393238, 0, 196608, 393239, 0, 196610, 393244, 0, 196608, 393245, 0, 196610, 393247, 0, 65537, 393248, 0, 131072, 393249, 0, 65538, 393252, 0, 131073, 393253, 0, 131074, 524270, 0, 131073, 524271, 0, 131074, 524276, 0, 196608, 524277, 0, 196610, 524285, 0, 131073, 524286, 0, 131074, 458755, 0, 131073, 458756, 0, 131074, 458788, 0, 131073, 458789, 0, 131074, 589806, 0, 131073, 589807, 0, 65539, 589808, 0, 65536, 589809, 0, 65536, 589810, 0, 2, 589821, 0, 131073, 589822, 0, 131074, 524291, 0, 65537, 524292, 0, 65538, 524324, 0, 131073, 524325, 0, 131074, 655342, 0, 131073, 655343, 0, 196619, 655344, 0, 196619, 655345, 0, 196619, 655346, 0, 131074, 655357, 0, 65537, 655358, 0, 65538, 589860, 0, 131073, 589861, 0, 131074, 720878, 0, 131073, 720879, 0, 196619, 720880, 0, 196619, 720881, 0, 196619, 720882, 0, 131074, 655396, 0, 131073, 655397, 0, 131074, 786414, 0, 131073, 786415, 0, 196619, 786416, 0, 196619, 786417, 0, 196619, 786418, 0, 131074, 720932, 0, 131073, 720933, 0, 131074, 851950, 0, 131073, 851951, 0, 196619, 851952, 0, 196619, 851953, 0, 196619, 851954, 0, 131074, 786468, 0, 131073, 786469, 0, 131074, 917486, 0, 131073, 917487, 0, 196619, 917488, 0, 196619, 917489, 0, 196619, 917490, 0, 131074, 852004, 0, 131073, 852005, 0, 131074, 983022, 0, 65537, 983023, 0, 131072, 983024, 0, 131072, 983025, 0, 131072, 983026, 0, 65538, 917540, 0, 65537, 917541, 0, 65538 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spike" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -752, 434 )
 
-[node name="Spike3" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike3" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -688, 434 )
 
-[node name="Spike4" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike4" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -656, 434 )
 
-[node name="Spike9" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike9" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -304, 177 )
 
-[node name="Spike10" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike10" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -272, 177 )
 
-[node name="Spike15" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike15" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 17, 114 )
 
-[node name="Spike16" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike16" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 49, 114 )
 
-[node name="Spike23" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike23" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 624, 115 )
 
-[node name="Spike24" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike24" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 656, 115 )
 
-[node name="Spike25" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike25" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 1456, 369 )
 
-[node name="Spike26" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike26" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 1488, 369 )
 
-[node name="Spike27" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike27" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 1840, 370 )
 
-[node name="Spike28" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike28" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 1872, 370 )
 
-[node name="Spike17" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike17" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 79, 114 )
 
-[node name="Spike18" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike18" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 111, 114 )
 
-[node name="Spike5" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike5" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -333, 208 )
 rotation = -1.5708
 
-[node name="Spike6" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike6" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -333, 240 )
 rotation = -1.5708
 
-[node name="Spike7" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike7" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -333, 272 )
 rotation = -1.5708
 
-[node name="Spike8" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike8" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -333, 303 )
 rotation = -1.5708
 
-[node name="Spike2" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike2" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -720, 434 )
 
-[node name="Spike11" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike11" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -176, 242 )
 
-[node name="Spike12" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike12" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -112, 242 )
 
-[node name="Spike13" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike13" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -80, 242 )
 
-[node name="Spike19" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike19" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 16, 270 )
 rotation = 3.14159
 
-[node name="Spike20" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike20" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 48, 270 )
 rotation = 3.14159
 
-[node name="Spike21" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike21" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 80, 270 )
 rotation = 3.14159
 
-[node name="Spike22" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike22" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 112, 270 )
 rotation = 3.14159
 
-[node name="Spike14" parent="Node2D" instance=ExtResource( 4 )]
+[node name="Spike14" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -144, 242 )
 
 [node name="Spring2" type="Area2D" parent="."]
