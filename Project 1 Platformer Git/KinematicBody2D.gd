@@ -8,69 +8,92 @@ const ACCELERATION = 50
 const MAX_JUMPS = 2
 const DEATH_HEIGHT = 1000
 const SPRING = -1000
+const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
 var motion = Vector2()
 var walljumpx = 400
 var wallJumpY = 400
-#var soup = 5
 
-# Did this get to github?
+#Dash Vars
+
+var dashDir = Vector2(1,0)
+var canDash = false;
+var dashing = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	# retrive playerVars
+	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
 	jumps = PlayerVars.jumps
-	
-	motion.y += GRAVITY
+	# set friction and gravity
+	if(!dashing):
+		motion.y += GRAVITY
 	var friction = false
-	
+	# fall death
 	if get_position().y > DEATH_HEIGHT:
 		respawn()
+	# move left and right
 	if Input.is_action_pressed("ui_right"):
-		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+		if(dashing == false):
+			motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
 	elif Input.is_action_pressed("ui_left"):
-		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
+		if(dashing == false):
+			motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
 		$Sprite.play("Run")
+	# if not moving friction is true
 	else:
 		friction = true
 		$Sprite.play("Idle")
 		
 	#print(motion.x)
 	if is_on_floor() or nextToWall():
+		# reset jumps
 		if is_on_floor():
 			jumps = MAX_JUMPS
-		if friction == true:
+		# friction if player is on ground and not moving
+		if friction == true and dashing == false:
 			motion.x = lerp(motion.x, 0,0.6);
+		# jump code
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
-			
+			# wall jumps
 			if (not is_on_floor()) and nextToRightWall():
 				motion.x = -walljumpx
 				motion.y = -wallJumpY
 			elif (not is_on_floor()) and nextToLeftWall():
 				motion.x = walljumpx
 				motion.y = -wallJumpY
+			# else, do a normal jump
 			else:
 				motion.y = JUMP
 				jumps -= 1
+		# Wall slide
 		if nextToWall() and motion.y > MAX_SPEED / 2:
 			motion.y = MAX_SPEED / 2
 
 	else:
+		#double jump
 		if Input.is_action_just_pressed("ui_up") and jumps > 0:
 			motion.y = JUMP * 0.75
 			jumps -= 1
+		# double jump fall animations
 		if motion.y < 0 && jumps >= 1:
 			$Sprite.play("Jump")
 		elif motion.y < 0 && jumps ==0:
 			$Sprite.play("Jump2")
 		else:
 			$Sprite.play("Fall")
-		if friction == true:
+		# friction code (is player not pressing anything?)
+		if friction == true and dashing == false:
 			motion. x = lerp(motion.x, 0, 0.1)
-	motion = move_and_slide(motion, UP)
+	# move, then update PlayerVars
+	dash()
+	print(motion)
+	motion = move_and_slide(motion, PlayerVars.direction)
+	PlayerVars.canDash = canDash
 	PlayerVars.motion = motion
 	PlayerVars.jumps = jumps
 
@@ -86,6 +109,19 @@ func nextToLeftWall():
 func respawn():
 	get_tree().reload_current_scene()
 
+func dash():
+	if(is_on_floor()):
+		canDash = true
+	if(Input.is_action_pressed("ui_right")):
+		dashDir = Vector2(1, 0)
+	if(Input.is_action_pressed("ui_left")):
+		dashDir = Vector2(-1, 0)
+	if(Input.is_action_just_pressed("ui_dash") and canDash):
+		motion = dashDir.normalized() * DASH_LENGTH
+		dashing = true
+		canDash = false
+		yield(get_tree().create_timer(0.2), "timeout")
+		dashing = false
 
 #func _on_Spring_body_entered(body):
 #	if body.name == "Player":
