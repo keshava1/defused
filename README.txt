@@ -1,6 +1,6 @@
 This is a platformer I am working on in the godot engine
 
-To run the exe, download the pck and exe of the version you want from the executables folder and run the exe
+To run the executable, download the pck and exe of the version you want from the executables folder and run the exe
 
 Tutorials and resources I used:
 
