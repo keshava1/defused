@@ -108,8 +108,11 @@ func nextToLeftWall():
 
 func respawn():
 	get_tree().reload_current_scene()
+	
+var ghost_scene = preload("res://Scenes/DashGhost.tscn")
 
 func dash():
+	
 	if(is_on_floor()):
 		canDash = true
 	if(Input.is_action_pressed("ui_right")):
@@ -117,12 +120,32 @@ func dash():
 	if(Input.is_action_pressed("ui_left")):
 		dashDir = Vector2(-1, 0)
 	if(Input.is_action_just_pressed("ui_dash") and canDash):
+		
+		var ghost_timer = $GhostTimer
+		ghost_timer.start()
+		ghost_timer.connect("timeout", self, "_on_Timer_timeout")
+		
 		motion = dashDir.normalized() * DASH_LENGTH
 		dashing = true
 		canDash = false
+		
+		instance_ghost($Sprite)
+		
 		yield(get_tree().create_timer(0.2), "timeout")
+		
 		dashing = false
+		PlayerVars.motion.x = 0
+		ghost_timer.stop()
+		
+func instance_ghost(sprite):
+	var ghost : Sprite = ghost_scene.instance()
+	get_parent().get_parent().add_child(ghost)
+	
+	ghost.global_position = sprite.global_position
+	ghost.texture = sprite.get_sprite_frames().get_frame(sprite.animation,sprite.get_frame())
+	ghost.frame = sprite.frame
+	ghost.flip_h = sprite.flip_h
+	ghost.scale = Vector2(1,1)
+func _on_Timer_timeout():
+	instance_ghost($Sprite)
 
-#func _on_Spring_body_entered(body):
-#	if body.name == "Player":
-#		motion.y = SPRING

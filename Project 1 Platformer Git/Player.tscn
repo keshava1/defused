@@ -20,6 +20,11 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "Fall",
@@ -33,11 +38,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "Jump2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 5.0
 } ]
 
@@ -85,3 +85,8 @@ cast_to = Vector2( 0, 20 )
 rotation = 1.5708
 enabled = true
 cast_to = Vector2( 0, 20 )
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="GhostTimer" to="." method="_on_GhostTimer_timeout"]
