@@ -1,6 +1,7 @@
 extends Area2D
 
-
+#export var springDirection : int
+export(int) var springDirection = 0
 #func _physics_process(delta):
 #	var bodies = get_overlapping_bodies()
 #	for body in bodies:
@@ -10,10 +11,16 @@ extends Area2D
 #		else:
 			#play idle
 			
+func _ready():
+	if(springDirection == 1):
+		$Sprite.rotate(PI)
 func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	
 	for body in bodies:
 		if body.name == "Player":
-			PlayerVars.motion.y = PlayerVars.SPRING
+			if(springDirection == 0):
+				PlayerVars.motion.y = PlayerVars.SPRING
+			if(springDirection == 1):
+				PlayerVars.motion.y = -PlayerVars.SPRING
 			PlayerVars.canDash = true

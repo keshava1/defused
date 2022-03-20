@@ -8,3 +8,4 @@ func _physics_process(delta):
 	for body in bodies:
 		if body.name == "Player":
 			get_tree().change_scene(next_world)
+			PlayerVars.reset()
