@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const GRAVITY = 20
+#const GRAVITY = 20
 const MAX_SPEED = 275
-const JUMP = -500
+#const JUMP = -500
 const ACCELERATION = 50
 const MAX_JUMPS = 2
-const DEATH_HEIGHT = 1000
+const DEATH_MIN = 1000
+const DEATH_MAX = -2000
 const SPRING = -1000
 const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
@@ -27,12 +28,14 @@ func _physics_process(delta):
 	motion = PlayerVars.motion
 	jumps = PlayerVars.jumps
 	# set friction and gravity
+	$Sprite.flip_v = PlayerVars.vFlip
 	if(!dashing):
-		motion.y += GRAVITY
+		motion.y += PlayerVars.gravity
 	var friction = false
 	# fall death
-	if get_position().y > DEATH_HEIGHT:
+	if get_position().y > DEATH_MIN or get_position().y < DEATH_MAX:
 		respawn()
+		
 	# move left and right
 	if Input.is_action_pressed("ui_right"):
 		if(dashing == false):
@@ -48,7 +51,6 @@ func _physics_process(delta):
 	else:
 		friction = true
 		$Sprite.play("Idle")
-		
 	#print(motion.x)
 	if is_on_floor() or nextToWall():
 		# reset jumps
@@ -61,23 +63,27 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
 			# wall jumps
 			if (not is_on_floor()) and nextToRightWall():
-				motion.x = -walljumpx
-				motion.y = -wallJumpY
+				motion.x = -PlayerVars.walljumpx
+				motion.y = -PlayerVars.wallJumpY
+				print(PlayerVars.wallJumpY)
 			elif (not is_on_floor()) and nextToLeftWall():
-				motion.x = walljumpx
-				motion.y = -wallJumpY
+				motion.x = PlayerVars.walljumpx
+				motion.y = -PlayerVars.wallJumpY
+				print(PlayerVars.wallJumpY)
 			# else, do a normal jump
 			else:
-				motion.y = JUMP
+				motion.y = PlayerVars.jump
 				jumps -= 1
 		# Wall slide
-		if nextToWall() and motion.y > MAX_SPEED / 2:
+		if nextToWall() and motion.y > MAX_SPEED / 2 and PlayerVars.vFlip == false:
 			motion.y = MAX_SPEED / 2
+		if nextToWall() and motion.y < MAX_SPEED / 2 and PlayerVars.vFlip == true:
+			motion.y = -MAX_SPEED / 2
 
 	else:
 		#double jump
 		if Input.is_action_just_pressed("ui_up") and jumps > 0:
-			motion.y = JUMP * 0.75
+			motion.y = PlayerVars.jump * 0.75
 			jumps -= 1
 		# double jump fall animations
 		if motion.y < 0 && jumps >= 1:
@@ -107,7 +113,12 @@ func nextToLeftWall():
 	return $LeftWall.is_colliding()
 
 func respawn():
+	PlayerVars.reset()
+	canDash = PlayerVars.canDash
+	motion = PlayerVars.motion
+	jumps = PlayerVars.jumps
 	get_tree().reload_current_scene()
+	
 	
 var ghost_scene = preload("res://Scenes/DashGhost.tscn")
 
@@ -145,6 +156,7 @@ func instance_ghost(sprite):
 	ghost.texture = sprite.get_sprite_frames().get_frame(sprite.animation,sprite.get_frame())
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
+	ghost.flip_v = sprite.flip_v
 	ghost.scale = Vector2(1,1)
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
