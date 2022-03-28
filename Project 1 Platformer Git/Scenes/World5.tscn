@@ -85,6 +85,6 @@ position = Vector2( 2464, -65 )
 springDirection = 1
 
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3359, 29 )
+position = Vector2( 3360, -1 )
 rotation = 3.14159
-next_world = "res://World.tscn"
+next_world = "res://Scenes/World6.tscn"
