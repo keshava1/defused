@@ -10,6 +10,7 @@ var vFlip = false
 var jump = -500
 var walljumpx = 400
 var wallJumpY = 400
+var live = true
 const SPRING = -1000
 
 func upGravity():
@@ -43,4 +44,5 @@ func reset():
 	jump = -500
 	walljumpx = 400
 	wallJumpY = 400
+	live = true
 

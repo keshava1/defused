@@ -6,8 +6,8 @@ const MAX_SPEED = 275
 #usually 50
 const ACCELERATION = 50
 const MAX_JUMPS = 2
-const DEATH_MIN = 1000
-const DEATH_MAX = -2000
+#var DEATH_MIN = 1000
+#var DEATH_MAX = -2000
 const SPRING = -1000
 const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
@@ -15,6 +15,9 @@ var motion = Vector2()
 var walljumpx = 400
 var wallJumpY = 400
 
+
+export(int) var DEATH_MIN = 1000
+export(int) var DEATH_MAX = -2000
 #Dash Vars
 
 var dashDir = Vector2(1,0)
@@ -23,6 +26,7 @@ var dashing = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	print(DEATH_MAX)
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -98,6 +102,7 @@ func _physics_process(delta):
 	# move, then update PlayerVars
 	dash()
 	print(motion)
+	#if(PlayerVars.live == true):
 	motion = move_and_slide(motion, PlayerVars.direction)
 	PlayerVars.canDash = canDash
 	PlayerVars.motion = motion
@@ -113,6 +118,9 @@ func nextToLeftWall():
 	return $LeftWall.is_colliding()
 
 func respawn():
+	#PlayerVars.live = false
+	#$Sprite.play("Death")
+	#yield(get_tree().create_timer(100.0), "timeout")
 	PlayerVars.reset()
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion

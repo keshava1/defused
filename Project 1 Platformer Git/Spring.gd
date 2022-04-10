@@ -19,6 +19,7 @@ func _physics_process(delta):
 	
 	for body in bodies:
 		if body.name == "Player":
+			PlayerVars.jumps = 1
 			if(springDirection == 0):
 				PlayerVars.motion.y = PlayerVars.SPRING
 			if(springDirection == 1):

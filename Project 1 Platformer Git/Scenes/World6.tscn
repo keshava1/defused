@@ -286,7 +286,7 @@ rotation = -1.5708
 [node name="WorldComplete" parent="." instance=ExtResource( 4 )]
 position = Vector2( -578, -448 )
 scale = Vector2( 2, 2 )
-next_world = "res://World.tscn"
+next_world = "res://Scenes/World8.tscn"
 
 [node name="Gravity + Springs" type="Node2D" parent="."]
 

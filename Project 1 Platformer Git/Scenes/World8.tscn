@@ -1,0 +1,245 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=1]
+[ext_resource path="res://Spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GravitySwitch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -327694, 0, 1, -327693, 0, 65536, -327692, 0, 65536, -327691, 0, 65536, -327690, 0, 2, -262158, 0, 131073, -262157, 0, 196619, -262156, 0, 196619, -262155, 0, 196619, -262154, 0, 131074, -196622, 0, 131073, -196621, 0, 196619, -196620, 0, 196619, -196619, 0, 196619, -196618, 0, 131074, -131086, 0, 131073, -131085, 0, 196619, -131084, 0, 196619, -131083, 0, 196619, -131082, 0, 131074, -65550, 0, 131073, -65549, 0, 196619, -65548, 0, 196619, -65547, 0, 196619, -65546, 0, 131074, -14, 0, 131073, -13, 0, 196619, -12, 0, 196619, -11, 0, 196619, -10, 0, 131074, 65522, 0, 131073, 65523, 0, 196619, 65524, 0, 196619, 65525, 0, 196619, 65526, 0, 131074, 131058, 0, 131073, 131059, 0, 196619, 131060, 0, 196619, 131061, 0, 196619, 131062, 0, 131074, 131066, 0, 1, 131067, 0, 65536, 131068, 0, 2, 196594, 0, 131073, 196595, 0, 196619, 196596, 0, 196619, 196597, 0, 196619, 196598, 0, 131074, 196602, 0, 131073, 196603, 0, 196619, 196604, 0, 131074, 262130, 0, 131073, 262131, 0, 196619, 262132, 0, 196619, 262133, 0, 196619, 262134, 0, 131074, 262138, 0, 131073, 262139, 0, 196619, 262140, 0, 131074, 327666, 0, 131073, 327667, 0, 196619, 327668, 0, 196619, 327669, 0, 196619, 327670, 0, 131074, 327674, 0, 131073, 327675, 0, 196619, 327676, 0, 131074, 262147, 0, 1, 262148, 0, 2, 393202, 0, 131073, 393203, 0, 196619, 393204, 0, 196619, 393205, 0, 196619, 393206, 0, 131074, 393210, 0, 131073, 393211, 0, 196619, 393212, 0, 131074, 327683, 0, 65537, 327684, 0, 65538, 458738, 0, 131073, 458739, 0, 196619, 458740, 0, 196619, 458741, 0, 196619, 458742, 0, 131074, 458746, 0, 131073, 458747, 0, 196619, 458748, 0, 131074, 524274, 0, 131073, 524275, 0, 196619, 524276, 0, 196619, 524277, 0, 196619, 524278, 0, 131074, 524282, 0, 131073, 524283, 0, 196619, 524284, 0, 131074, 589810, 0, 131073, 589811, 0, 196619, 589812, 0, 196619, 589813, 0, 196619, 589814, 0, 131074, 589818, 0, 131073, 589819, 0, 196619, 589820, 0, 131074, 655346, 0, 131073, 655347, 0, 196619, 655348, 0, 3, 655349, 0, 131072, 655350, 0, 65538, 655354, 0, 131073, 655355, 0, 196619, 655356, 0, 131074, 589839, 0, 196608, 589840, 0, 196609, 589841, 0, 196609, 589842, 0, 196609, 589843, 0, 196609, 589844, 0, 196610, 720882, 0, 131073, 720883, 0, 196619, 720884, 0, 131074, 720890, 0, 131073, 720891, 0, 196619, 720892, 0, 131074, 655370, 0, 1, 655371, 0, 2, 786418, 0, 131073, 786419, 0, 196619, 786420, 0, 131074, 786426, 0, 131073, 786427, 0, 196619, 786428, 0, 131074, 720906, 0, 65537, 720907, 0, 65538, 851954, 0, 131073, 851955, 0, 196619, 851956, 0, 131074, 851962, 0, 131073, 851963, 0, 196619, 851964, 0, 131074, 786438, 0, 1, 786439, 0, 2, 917490, 0, 131073, 917491, 0, 196619, 917492, 0, 65539, 917493, 0, 65536, 917494, 0, 2, 917498, 0, 131073, 917499, 0, 196619, 917500, 0, 131074, 851974, 0, 65537, 851975, 0, 65538, 983026, 0, 131073, 983027, 0, 196619, 983028, 0, 196619, 983029, 0, 196619, 983030, 0, 65539, 983031, 0, 65536, 983032, 0, 65536, 983033, 0, 65536, 983034, 0, 65540, 983035, 0, 196619, 983036, 0, 131074, 917514, 0, 1, 917515, 0, 2, 1048562, 0, 65537, 1048563, 0, 131072, 1048564, 0, 131072, 1048565, 0, 131072, 1048566, 0, 131072, 1048567, 0, 131072, 1048568, 0, 131072, 1048569, 0, 131072, 1048570, 0, 131072, 1048571, 0, 131072, 1048572, 0, 65538, 983050, 0, 65537, 983051, 0, 65538 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -680, 792 )
+DEATH_MIN = 1500
+DEATH_MAX = -1000
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Node2D2" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, 544 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, 608 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D35" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 795, 672 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D36" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 795, 736 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D39" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 795, 928 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D40" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 795, 992 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D37" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 357, 801 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D38" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 357, 865 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D21" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 349, 288 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D22" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 349, 352 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D9" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -544, 868 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D10" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -480, 868 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D11" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -416, 868 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D31" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 416, 924 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+
+[node name="Node2D32" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 480, 924 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+
+[node name="Node2D33" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 656, 782 )
+rotation = 3.14159
+
+[node name="Node2D41" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 688, 782 )
+rotation = 3.14159
+
+[node name="Node2D34" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 720, 782 )
+rotation = 3.14159
+
+[node name="Node2D42" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 752, 782 )
+rotation = 3.14159
+
+[node name="Node2D12" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 225, 228 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D19" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 289, 228 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D17" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -288, 36 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D18" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -224, 36 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D20" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -352, 36 )
+scale = Vector2( 2, 2 )
+
+[node name="Node2D3" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, 416 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D4" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, 480 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D25" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 927 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D26" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 991 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D27" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 799 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D28" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 863 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D29" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 671 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D30" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -164, 735 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D13" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, -224 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D14" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, -160 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D15" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, -352 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D16" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -548, -288 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D5" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -412, 224 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D6" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -412, 288 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D23" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 165, 288 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D24" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( 165, 352 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D7" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -412, 96 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Node2D8" parent="Spikes" instance=ExtResource( 2 )]
+position = Vector2( -412, 160 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+
+[node name="Gravity" type="Node2D" parent="."]
+
+[node name="GravitySwitch" parent="Gravity" instance=ExtResource( 4 )]
+position = Vector2( -128, 92 )
+gravityDirection = 1
+
+[node name="GravitySwitch2" parent="Gravity" instance=ExtResource( 4 )]
+position = Vector2( 906, 955 )
+
+[node name="Springs" type="Node2D" parent="."]
+
+[node name="Spring" parent="Springs" instance=ExtResource( 5 )]
+position = Vector2( 197, 384 )
+scale = Vector2( 2, 2 )
+springDirection = 1
+
+[node name="Spring2" parent="Springs" instance=ExtResource( 5 )]
+position = Vector2( 261, 384 )
+scale = Vector2( 2, 2 )
+springDirection = 1
+
+[node name="WorldComplete" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1297, 513 )
+next_world = "res://Scenes/World7.tscn"
