@@ -62,7 +62,7 @@ func _physics_process(delta):
 			jumps = MAX_JUMPS
 		# friction if player is on ground and not moving
 		if friction == true and dashing == false:
-			motion.x = lerp(motion.x, 0,0.6);
+			motion.x = lerp(motion.x, 0,0.2);
 		# jump code
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
 			# wall jumps
@@ -85,10 +85,6 @@ func _physics_process(delta):
 			motion.y = -MAX_SPEED / 2
 
 	else:
-		#double jump
-		if Input.is_action_just_pressed("ui_up") and jumps > 0:
-			motion.y = PlayerVars.jump * 0.75
-			jumps -= 1
 		# double jump fall animations
 		if motion.y < 0 && jumps >= 1:
 			$Sprite.play("Jump")
@@ -96,9 +92,17 @@ func _physics_process(delta):
 			$Sprite.play("Jump2")
 		else:
 			$Sprite.play("Fall")
+		#double jump
+		if Input.is_action_just_pressed("ui_up") and jumps > 0:
+			#slight downward before jump
+			move_and_slide(-motion * 0.1, PlayerVars.direction)
+			yield(get_tree().create_timer(0.05), "timeout")
+			motion.y = PlayerVars.jump * 0.85
+			jumps -= 1
+
 		# friction code (is player not pressing anything?)
 		if friction == true and dashing == false:
-			motion. x = lerp(motion.x, 0, 0.1)
+			motion. x = lerp(motion.x, 0, 0.05)
 	# move, then update PlayerVars
 	dash()
 	print(motion)

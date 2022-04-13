@@ -3,7 +3,7 @@ extends KinematicBody2D
 const GRAVITY = 10
 const SPEED = 60
 const FLOOR = Vector2(0,-1)
-
+const HEIGHT = 750
 var velocity = Vector2()
 var direction = 1
 
@@ -28,4 +28,13 @@ func _physics_process(delta):
 	if($raycast.is_colliding() == false):
 		direction = direction * -1
 		$raycast.position.x *= -1
+		
+	var bodies = $Head.get_overlapping_bodies()
+	
+	for body in bodies:
+		if body.name == "Player":
+			queue_free()
+			PlayerVars.motion.y -= HEIGHT
+			PlayerVars.canDash = true
+			PlayerVars.jumps = 1
 	
