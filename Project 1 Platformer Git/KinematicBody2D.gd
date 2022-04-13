@@ -26,7 +26,7 @@ var dashing = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	print(DEATH_MAX)
+	update_dash()
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -168,4 +168,10 @@ func instance_ghost(sprite):
 	ghost.scale = Vector2(1,1)
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
+	
+func update_dash():
+	if(PlayerVars.canDash):
+		$UI/DashLabel.text = "Dash: Active"
+	else:
+		$UI/DashLabel.text = "Dash: Off"
 
