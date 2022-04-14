@@ -7,6 +7,7 @@ func _ready():
 		rotate(0)
 	if (gravityDirection == 1):
 		rotate(PI)
+	$AnimatedSprite.play("default")
 func _on_GravitySwitch_body_entered(body):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:

@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Spring.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+[ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 
 [node name="World2" type="Node"]
 
@@ -118,16 +115,8 @@ rotation = 3.14159
 [node name="Spike14" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( -144, 242 )
 
-[node name="Spring2" type="Area2D" parent="."]
-position = Vector2( -929, 480 )
-script = ExtResource( 5 )
+[node name="Spring" parent="." instance=ExtResource( 5 )]
+position = Vector2( -897, 480 )
 
-[node name="Sprite" type="Sprite" parent="Spring2"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 16, 16 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring2"]
-position = Vector2( 16, 16 )
-shape = SubResource( 1 )
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1694, 198 )

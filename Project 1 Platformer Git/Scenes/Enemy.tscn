@@ -31,7 +31,7 @@ animations = [ {
 extents = Vector2( 5.5, 10.5 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 7, 1 )
+extents = Vector2( 5.5, 1 )
 
 [node name="Enemy" type="KinematicBody2D"]
 scale = Vector2( 2.5, 2.5 )
@@ -55,6 +55,6 @@ cast_to = Vector2( 0, 16 )
 position = Vector2( 23.6, -11.2 )
 
 [node name="BounceCol" type="CollisionShape2D" parent="Head"]
-position = Vector2( -22.6, 4.2 )
+position = Vector2( -22.3, 4.4 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 7 )

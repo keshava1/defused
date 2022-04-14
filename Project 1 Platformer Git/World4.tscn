@@ -141,6 +141,102 @@ rotation = 3.14159
 position = Vector2( 1652, -306 )
 rotation = 3.14159
 
+[node name="Node2D34" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1297, -462 )
+
+[node name="Node2D35" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1329, -462 )
+
+[node name="Node2D36" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1359, -462 )
+
+[node name="Node2D37" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1391, -462 )
+
+[node name="Node2D38" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1675, -462 )
+
+[node name="Node2D39" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1707, -462 )
+
+[node name="Node2D40" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1737, -462 )
+
+[node name="Node2D41" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1769, -462 )
+
+[node name="Node2D42" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1549, -462 )
+
+[node name="Node2D43" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1581, -462 )
+
+[node name="Node2D44" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1611, -462 )
+
+[node name="Node2D45" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1643, -462 )
+
+[node name="Node2D46" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1423, -462 )
+
+[node name="Node2D47" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1455, -462 )
+
+[node name="Node2D48" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1485, -462 )
+
+[node name="Node2D49" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1517, -462 )
+
+[node name="Node2D50" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 535, -462 )
+
+[node name="Node2D51" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 567, -462 )
+
+[node name="Node2D52" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 597, -462 )
+
+[node name="Node2D53" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 629, -462 )
+
+[node name="Node2D54" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 913, -462 )
+
+[node name="Node2D55" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 945, -462 )
+
+[node name="Node2D56" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 975, -462 )
+
+[node name="Node2D57" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1007, -462 )
+
+[node name="Node2D58" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 787, -462 )
+
+[node name="Node2D59" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 819, -462 )
+
+[node name="Node2D60" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 849, -462 )
+
+[node name="Node2D61" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 881, -462 )
+
+[node name="Node2D62" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 661, -462 )
+
+[node name="Node2D63" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 693, -462 )
+
+[node name="Node2D64" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 723, -462 )
+
+[node name="Node2D65" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 755, -462 )
+
 [node name="Gravity" type="Node2D" parent="."]
 
 [node name="GravitySwitch" parent="Gravity" instance=ExtResource( 3 )]

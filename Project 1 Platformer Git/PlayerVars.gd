@@ -11,6 +11,7 @@ var jump = -500
 var walljumpx = 400
 var wallJumpY = 400
 var live = true
+#-1000
 const SPRING = -1000
 
 func upGravity():

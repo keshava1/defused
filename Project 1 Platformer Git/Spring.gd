@@ -25,3 +25,8 @@ func _physics_process(delta):
 			if(springDirection == 1):
 				PlayerVars.motion.y = -PlayerVars.SPRING
 			PlayerVars.canDash = true
+			$Sprite.play("Spring")
+
+
+func _on_Sprite_animation_finished():
+	$Sprite.play("Idle")

@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Spring.gd" type="Script" id=2]
+[ext_resource path="res://Spring.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,34 +19,6 @@ tile_data = PoolIntArray( -1114098, 0, 6, -1114097, 0, 196609, -1114096, 0, 1966
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1, 94 )
-
-[node name="Spring" type="Area2D" parent="."]
-position = Vector2( 160, 96 )
-script = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Spring"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 16, 16 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring"]
-position = Vector2( 16, 16 )
-shape = SubResource( 1 )
-
-[node name="Spring2" type="Area2D" parent="."]
-position = Vector2( 464, -416 )
-script = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="Spring2"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 16, 16 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring2"]
-position = Vector2( 16, 16 )
-shape = SubResource( 1 )
 
 [node name="Spikes" type="Node2D" parent="."]
 
@@ -385,3 +353,9 @@ position = Vector2( 689, -590 )
 
 [node name="SpikeX2" parent="Spikes" instance=ExtResource( 5 )]
 position = Vector2( 657, -590 )
+
+[node name="Spring" parent="." instance=ExtResource( 2 )]
+position = Vector2( 159, 96 )
+
+[node name="Spring2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 447, -416 )
