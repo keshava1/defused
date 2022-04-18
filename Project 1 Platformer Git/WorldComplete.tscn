@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://WorldComplete.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Fire Extinguisher-1.png.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 32, 32 )
+extents = Vector2( 17.5, 25.5 )
 
 [node name="WorldComplete" type="Area2D"]
 script = ExtResource( 1 )
@@ -13,7 +13,10 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="."]
+position = Vector2( -1.90735e-06, -4.76837e-07 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -5.5, 6.5 )
 shape = SubResource( 4 )

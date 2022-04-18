@@ -8,3 +8,7 @@ func _on_StartGame_pressed():
 
 func _on_QuitGame_pressed():
 	get_tree().quit()
+
+
+func _on_Levels_pressed():
+	get_tree().change_scene("res://Scenes/Levels.tscn")

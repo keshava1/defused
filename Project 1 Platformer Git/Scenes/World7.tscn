@@ -189,7 +189,7 @@ position = Vector2( 3341, -176 )
 rotation = 1.5708
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3694, -64 )
+position = Vector2( 3700, 32 )
 next_world = "res://World.tscn"
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
