@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rob0ne - Ninja's Spirit.mp3-a74cfc7feca25a25e86cef5397808c81.mp3str"
+
+[deps]
+
+source_file="res://Rob0ne - Ninja's Spirit.mp3"
+dest_files=[ "res://.import/Rob0ne - Ninja's Spirit.mp3-a74cfc7feca25a25e86cef5397808c81.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

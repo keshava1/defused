@@ -38,3 +38,9 @@ func _physics_process(delta):
 			PlayerVars.canDash = true
 			PlayerVars.jumps = 1
 	
+
+
+func _on_Body_body_entered(body):
+	if(body.name == "Player"):
+		body.respawn()
+		get_tree().reload_current_scene()

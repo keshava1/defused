@@ -26,7 +26,7 @@ margin_bottom = 313.0
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 89.0
 margin_bottom = 14.0
-text = "Platformer"
+text = "Defused"
 
 [node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 18.0

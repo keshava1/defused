@@ -14,7 +14,7 @@ var jumps = MAX_JUMPS
 var motion = Vector2()
 var walljumpx = 400
 var wallJumpY = 400
-
+var time_elapsed = PlayerVars.timer
 
 export(int) var DEATH_MIN = 1000
 export(int) var DEATH_MAX = -2000
@@ -23,10 +23,12 @@ export(int) var DEATH_MAX = -2000
 var dashDir = Vector2(1,0)
 var canDash = false;
 var dashing = false
-
+func _ready():
+	MusicPlayer.stream_paused = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	update_dash()
+	update_timer(delta)
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -178,4 +180,7 @@ func update_dash():
 		$UI/DashLabel.text = "Dash: Active"
 	else:
 		$UI/DashLabel.text = "Dash: Off"
-
+func update_timer(delta):
+	time_elapsed += delta
+	PlayerVars.timer = time_elapsed
+	$UI/Timer.text = str(stepify(time_elapsed, 0.01))
