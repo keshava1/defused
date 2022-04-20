@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=2]
@@ -7,7 +7,11 @@
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=7]
-[ext_resource path="res://Fonts/UbuntuBold20.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -217,7 +221,7 @@ margin_left = -46.0
 margin_top = -368.0
 margin_right = 196.0
 margin_bottom = -136.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "Instructions:
 Arrow Keys/Joystick to 
 move

@@ -15,6 +15,7 @@ var timer = 0
 var muted = false
 var temp = 0
 var deaths = 0
+var maxScore = 0
 const SPRING = -1000
 
 func upGravity():
@@ -64,6 +65,9 @@ func _physics_process(delta):
 			MusicPlayer.play(temp)
 			muted = false
 
+func newScore(score):
+	if(score > maxScore):
+		maxScore = score
 
 
 
