@@ -31,7 +31,7 @@ animations = [ {
 extents = Vector2( 5.5, 1 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 5.8, 10 )
+extents = Vector2( 6.8, 10 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 5.5, 10.5 )
@@ -60,13 +60,12 @@ shape = SubResource( 7 )
 position = Vector2( -3.2, 4.8 )
 
 [node name="DeathCol" type="CollisionShape2D" parent="Body"]
-position = Vector2( 4.6, 0 )
+position = Vector2( 4, 0 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 8 )
 
 [node name="EnemyCol" type="CollisionShape2D" parent="."]
 position = Vector2( 1.5, 4.5 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
 
 [connection signal="body_entered" from="Body" to="." method="_on_Body_body_entered"]

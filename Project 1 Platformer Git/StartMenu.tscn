@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/UbuntuBold20.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/UbuntuNormal.tres" type="DynamicFont" id=3]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -18,32 +20,37 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 435.0
-margin_top = 227.0
-margin_right = 524.0
-margin_bottom = 313.0
+margin_left = 431.0
+margin_top = 215.0
+margin_right = 529.0
+margin_bottom = 325.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 89.0
-margin_bottom = 14.0
+margin_right = 98.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
 text = "Defused"
+align = 1
 
 [node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 89.0
-margin_bottom = 38.0
+margin_top = 27.0
+margin_right = 98.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 3 )
 text = "Start Game"
 
 [node name="Levels" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 89.0
-margin_bottom = 62.0
+margin_top = 56.0
+margin_right = 98.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 3 )
 text = "Level Select"
 
 [node name="QuitGame" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 66.0
-margin_right = 89.0
-margin_bottom = 86.0
+margin_top = 85.0
+margin_right = 98.0
+margin_bottom = 110.0
+custom_fonts/font = ExtResource( 3 )
 text = "Quit Game"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]

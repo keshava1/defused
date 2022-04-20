@@ -12,6 +12,9 @@ var walljumpx = 400
 var wallJumpY = 400
 var live = true
 var timer = 0
+var muted = false
+var temp = 0
+var deaths = 0
 const SPRING = -1000
 
 func upGravity():
@@ -46,4 +49,21 @@ func reset():
 	walljumpx = 400
 	wallJumpY = 400
 	live = true
+
+func _physics_process(delta):
+	if( Input.is_action_just_pressed("ui_cancel")):
+		get_tree().quit()
+	if Input.is_action_just_pressed("ui_mute"):
+		if(muted == false):
+			muted = true
+			temp = MusicPlayer.get_playback_position()
+			MusicPlayer.stop()
+			print("muted")
+		else:
+			print("unmuted")
+			MusicPlayer.play(temp)
+			muted = false
+
+
+
 

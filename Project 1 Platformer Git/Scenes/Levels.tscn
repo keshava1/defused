@@ -42,25 +42,26 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 20.0
+margin_left = 28.0
+margin_right = 48.0
 margin_bottom = 20.0
 text = "1"
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 24.0
-margin_right = 44.0
+margin_left = 52.0
+margin_right = 72.0
 margin_bottom = 20.0
 text = "2"
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 48.0
-margin_right = 68.0
+margin_left = 76.0
+margin_right = 96.0
 margin_bottom = 20.0
 text = "3"
 
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 72.0
-margin_right = 92.0
+margin_left = 100.0
+margin_right = 120.0
 margin_bottom = 20.0
 text = "4"
 __meta__ = {
@@ -68,8 +69,8 @@ __meta__ = {
 }
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 96.0
-margin_right = 116.0
+margin_left = 124.0
+margin_right = 144.0
 margin_bottom = 20.0
 text = "5"
 __meta__ = {
@@ -77,8 +78,8 @@ __meta__ = {
 }
 
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 120.0
-margin_right = 140.0
+margin_left = 148.0
+margin_right = 168.0
 margin_bottom = 20.0
 text = "6"
 __meta__ = {
@@ -86,8 +87,8 @@ __meta__ = {
 }
 
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 144.0
-margin_right = 164.0
+margin_left = 172.0
+margin_right = 192.0
 margin_bottom = 20.0
 text = "7"
 __meta__ = {
@@ -95,28 +96,10 @@ __meta__ = {
 }
 
 [node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 168.0
-margin_right = 188.0
+margin_left = 196.0
+margin_right = 216.0
 margin_bottom = 20.0
 text = "8"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 192.0
-margin_right = 212.0
-margin_bottom = 20.0
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button10" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 216.0
-margin_right = 244.0
-margin_bottom = 20.0
-text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }

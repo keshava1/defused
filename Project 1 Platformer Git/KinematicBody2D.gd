@@ -24,7 +24,9 @@ var dashDir = Vector2(1,0)
 var canDash = false;
 var dashing = false
 func _ready():
-	MusicPlayer.stream_paused = false
+	print("ready")
+	if(PlayerVars.muted == false):
+		MusicPlayer.stream_paused = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	update_dash()
@@ -71,11 +73,11 @@ func _physics_process(delta):
 			if (not is_on_floor()) and nextToRightWall():
 				motion.x = -PlayerVars.walljumpx
 				motion.y = -PlayerVars.wallJumpY
-				print(PlayerVars.wallJumpY)
+				#print(PlayerVars.wallJumpY)
 			elif (not is_on_floor()) and nextToLeftWall():
 				motion.x = PlayerVars.walljumpx
 				motion.y = -PlayerVars.wallJumpY
-				print(PlayerVars.wallJumpY)
+				#print(PlayerVars.wallJumpY)
 			# else, do a normal jump
 			else:
 				motion.y = PlayerVars.jump
@@ -107,7 +109,7 @@ func _physics_process(delta):
 			motion. x = lerp(motion.x, 0, 0.05)
 	# move, then update PlayerVars
 	dash()
-	print(motion)
+	#print(motion)
 	#if(PlayerVars.live == true):
 	motion = move_and_slide(motion, PlayerVars.direction)
 	PlayerVars.canDash = canDash
@@ -127,6 +129,7 @@ func respawn():
 	#PlayerVars.live = false
 	#$Sprite.play("Death")
 	#yield(get_tree().create_timer(100.0), "timeout")
+	PlayerVars.deaths += 1
 	PlayerVars.reset()
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
