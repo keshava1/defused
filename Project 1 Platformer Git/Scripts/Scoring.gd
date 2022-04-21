@@ -10,9 +10,13 @@ var points
 func _ready():
 	var time = int(PlayerVars.timer)
 	var deaths = PlayerVars.deaths
-	var points = 9999 - int(time) - deaths*10
+	var points = 9999 - int(time)*3 - deaths*50
 	$VBoxContainer/Points.text = "9,999 points\n-\n" + str(time) + " seconds\n-\n" + str(deaths) + " deaths\n=\n" + str(points) + " points"
 	PlayerVars.newScore(points)
+func _process(delta):
+	if(Input.is_action_just_pressed("ui_accept")):
+		MusicPlayer.stop()
+		get_tree().change_scene("res://StartMenu.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

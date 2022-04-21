@@ -20,39 +20,50 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 431.0
-margin_top = 215.0
-margin_right = 529.0
-margin_bottom = 325.0
+margin_left = 280.0
+margin_top = 133.0
+margin_right = 680.0
+margin_bottom = 406.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 98.0
-margin_bottom = 23.0
+margin_right = 400.0
+margin_bottom = 113.0
 custom_fonts/font = ExtResource( 2 )
 text = "Defused"
 align = 1
 
 [node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 27.0
-margin_right = 98.0
-margin_bottom = 52.0
+margin_top = 117.0
+margin_right = 400.0
+margin_bottom = 153.0
 custom_fonts/font = ExtResource( 3 )
 text = "Start Game"
 
 [node name="Levels" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 98.0
-margin_bottom = 81.0
+margin_top = 157.0
+margin_right = 400.0
+margin_bottom = 193.0
 custom_fonts/font = ExtResource( 3 )
 text = "Level Select"
 
+[node name="Leaderboard" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 197.0
+margin_right = 400.0
+margin_bottom = 233.0
+custom_fonts/font = ExtResource( 3 )
+text = "Leaderboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="QuitGame" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 85.0
-margin_right = 98.0
-margin_bottom = 110.0
+margin_top = 237.0
+margin_right = 400.0
+margin_bottom = 273.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit Game"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Levels" to="." method="_on_Levels_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]

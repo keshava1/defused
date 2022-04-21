@@ -12,3 +12,7 @@ func _on_QuitGame_pressed():
 
 func _on_Levels_pressed():
 	get_tree().change_scene("res://Scenes/Levels.tscn")
+
+
+func _on_Leaderboard_pressed():
+	get_tree().change_scene("res://Scenes/Leaderboard.tscn")

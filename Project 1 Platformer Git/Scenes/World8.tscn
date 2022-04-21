@@ -264,5 +264,5 @@ scale = Vector2( 2, 2 )
 springDirection = 1
 
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1297, 513 )
+position = Vector2( 1289, 545 )
 next_world = "res://Scenes/Scoring.tscn"

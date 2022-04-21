@@ -174,15 +174,15 @@ func instance_ghost(sprite):
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
 	ghost.flip_v = sprite.flip_v
-	ghost.scale = Vector2(1,1)
+	ghost.scale = Vector2(0.233,0.233)
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
 	
 func update_dash():
 	if(PlayerVars.canDash):
-		$UI/DashLabel.text = "Dash: Active"
+		$UI/DashSprite.visible = true
 	else:
-		$UI/DashLabel.text = "Dash: Off"
+		$UI/DashSprite.visible = false
 func update_timer(delta):
 	time_elapsed += delta
 	PlayerVars.timer = time_elapsed
