@@ -3,7 +3,10 @@ extends Control
 
 
 func _on_StartGame_pressed():
+	PlayerVars.timer = 0
+	PlayerVars.deaths = 0
 	get_tree().change_scene("res://Scenes/World7.tscn")
+	
 
 
 func _on_QuitGame_pressed():

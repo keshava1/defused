@@ -8,6 +8,7 @@ var points
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#get these nodes
 	var time = int(PlayerVars.timer)
 	var deaths = PlayerVars.deaths
 	var points = 9999 - int(time)*2 - deaths*50

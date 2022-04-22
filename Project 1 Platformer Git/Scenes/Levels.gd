@@ -2,7 +2,7 @@ extends Control
 
 
 
-#get_tree().change_scene("res://Scenes/World7.tscn")
+#sets all of the buttons
 func _on_Button_pressed():
 		get_tree().change_scene("res://Scenes/World7.tscn")
 

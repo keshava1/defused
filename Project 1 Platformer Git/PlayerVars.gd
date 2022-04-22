@@ -1,6 +1,6 @@
 extends Node
 
-
+# variables that the player uses
 var jumps = 2
 var motion = Vector2(0, -1)
 var canDash
@@ -15,15 +15,15 @@ var timer = 0
 var muted = false
 var temp = 0
 var deaths = 0
-
+#score variables
 var score1 = 0
 var score2 = 0
 var score3 = 0
 var score4 = 0
 var score5 = 0
-
+# spring constant
 const SPRING = -1000
-
+#make gravity upwards
 func upGravity():
 	print("gravity up")
 	direction = Vector2(0, 1)
@@ -32,7 +32,7 @@ func upGravity():
 	jump = 500
 	#walljumpx = -400
 	wallJumpY = -400
-	
+# make gravity downwards
 func downGravity():
 	print("gravity down")
 	direction = Vector2(0, -1)
@@ -41,10 +41,10 @@ func downGravity():
 	jump = -500
 	#walljumpx = 400
 	wallJumpY = 400
-
+#on ready, make gravity down
 func _ready():
 	downGravity()
-	
+#resets vars
 func reset():
 	jumps = 2
 	motion = Vector2(0, -1)
@@ -56,7 +56,7 @@ func reset():
 	walljumpx = 400
 	wallJumpY = 400
 	live = true
-
+#check for exit, mute, and more
 func _physics_process(delta):
 	if( Input.is_action_just_pressed("ui_cancel")):
 		get_tree().quit()
@@ -71,7 +71,7 @@ func _physics_process(delta):
 			MusicPlayer.play(temp)
 			muted = false
 
-
+#add a new score
 func newScore(score):
 	var temp = score
 	var temp2
