@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=1]
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://GravitySwitch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 7 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -266,3 +272,21 @@ springDirection = 1
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1289, 545 )
 next_world = "res://Scenes/Scoring.tscn"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 1318, 394 )
+scale = Vector2( 0.428125, 0.428125 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = 1255.0
+margin_top = 385.0
+margin_right = 1385.0
+margin_bottom = 402.0
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

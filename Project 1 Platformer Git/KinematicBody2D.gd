@@ -140,44 +140,46 @@ func respawn():
 var ghost_scene = preload("res://Scenes/DashGhost.tscn")
 
 func dash():
-	
+	# dashing allowed if is on floor
 	if(is_on_floor()):
 		canDash = true
-	if(Input.is_action_pressed("ui_right")):
+	if(Input.is_action_pressed("ui_right")): #direction of the dash
 		dashDir = Vector2(1, 0)
 	if(Input.is_action_pressed("ui_left")):
 		dashDir = Vector2(-1, 0)
-	if(Input.is_action_just_pressed("ui_dash") and canDash):
-		
+	if(Input.is_action_just_pressed("ui_dash") and canDash): # if dashing is allowed:
+		#set up timer for dash reset
 		var ghost_timer = $GhostTimer
 		ghost_timer.start()
 		ghost_timer.connect("timeout", self, "_on_Timer_timeout")
-		
+		# add to motion and reset vars
 		motion = dashDir.normalized() * DASH_LENGTH
 		dashing = true
 		canDash = false
-		
+		#use instance ghost method
 		instance_ghost($Sprite)
-		
+		#wait for timer to finish
 		yield(get_tree().create_timer(0.2), "timeout")
-		
+		#turn of dashing, stop motion, end ghost timer
 		dashing = false
 		PlayerVars.motion.x = 0
 		ghost_timer.stop()
 		
 func instance_ghost(sprite):
-	var ghost : Sprite = ghost_scene.instance()
-	get_parent().get_parent().add_child(ghost)
-	
+	var ghost : Sprite = ghost_scene.instance() # create ghost scene
+	get_parent().get_parent().add_child(ghost) # add ghost node
+	#set ghost attributes
 	ghost.global_position = sprite.global_position
 	ghost.texture = sprite.get_sprite_frames().get_frame(sprite.animation,sprite.get_frame())
 	ghost.frame = sprite.frame
 	ghost.flip_h = sprite.flip_h
 	ghost.flip_v = sprite.flip_v
 	ghost.scale = Vector2(0.233,0.233)
+# instance ghost on timeout
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
 	
+# update dash sprite
 func update_dash():
 	if(PlayerVars.canDash):
 		$UI/DashSprite.visible = true
