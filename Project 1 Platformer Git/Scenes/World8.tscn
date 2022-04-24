@@ -271,7 +271,7 @@ springDirection = 1
 
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1289, 545 )
-next_world = "res://Scenes/Scoring.tscn"
+next_world = "res://StartMenu.tscn"
 
 [node name="Node2D" type="Node2D" parent="."]
 
