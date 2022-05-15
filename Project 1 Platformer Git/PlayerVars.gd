@@ -15,6 +15,7 @@ var timer = 0
 var muted = false
 var temp = 0
 var deaths = 0
+var hardMode = false
 #score variables
 var score1 = 0
 var score2 = 0

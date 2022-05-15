@@ -12,9 +12,8 @@ const SPRING = -1000
 const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
 var motion = Vector2()
-var walljumpx = 400
-var wallJumpY = 400
-var time_elapsed = PlayerVars.timer
+var deathTimer = 30
+#var time_elapsed = PlayerVars.timer
 
 export(int) var DEATH_MIN = 1000
 export(int) var DEATH_MAX = -2000
@@ -27,10 +26,21 @@ func _ready():
 	print("ready")
 	if(PlayerVars.muted == false):
 		MusicPlayer.stream_paused = false
+	
+	if(PlayerVars.hardMode):
+		$UI/Control/BarTimer.autostart = true
+	else:
+		$UI/Control.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	update_dash()
 	update_timer(delta)
+	
+	
+	deathTimer -=30
+	
+	
+	
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -66,7 +76,7 @@ func _physics_process(delta):
 			jumps = MAX_JUMPS
 		# friction if player is on ground and not moving
 		if friction == true and dashing == false:
-			motion.x = lerp(motion.x, 0,0.2);
+			motion.x = lerp(motion.x, 0,0.1);
 		# jump code
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
 			# wall jumps
@@ -85,8 +95,10 @@ func _physics_process(delta):
 		# Wall slide
 		if nextToWall() and motion.y > MAX_SPEED / 2 and PlayerVars.vFlip == false:
 			motion.y = MAX_SPEED / 2
+			$Sprite.play("WallSlide")
 		if nextToWall() and motion.y < MAX_SPEED / 2 and PlayerVars.vFlip == true:
 			motion.y = -MAX_SPEED / 2
+			$Sprite.play("WallSlide")
 
 	else:
 		# double jump fall animations
@@ -106,7 +118,7 @@ func _physics_process(delta):
 
 		# friction code (is player not pressing anything?)
 		if friction == true and dashing == false:
-			motion. x = lerp(motion.x, 0, 0.05)
+			motion. x = lerp(motion.x, 0, 0.025)
 	# move, then update PlayerVars
 	dash()
 	#print(motion)
@@ -126,9 +138,13 @@ func nextToLeftWall():
 	return $LeftWall.is_colliding()
 
 func respawn():
-	#PlayerVars.live = false
-	#$Sprite.play("Death")
-	#yield(get_tree().create_timer(100.0), "timeout")
+	print("respawn")
+	for i in 10:
+		print("modulate + timeout")
+		$Sprite.modulate = Color(i * 0.1, 0, 0)
+		print("modulate")
+		yield(get_tree().create_timer(1), "timeout")
+		print("timeout")
 	PlayerVars.deaths += 1
 	PlayerVars.reset()
 	canDash = PlayerVars.canDash
@@ -179,13 +195,19 @@ func instance_ghost(sprite):
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
 	
-# update dash sprite
+
 func update_dash():
 	if(PlayerVars.canDash):
 		$UI/DashSprite.visible = true
 	else:
 		$UI/DashSprite.visible = false
 func update_timer(delta):
-	time_elapsed += delta
-	PlayerVars.timer = time_elapsed
-	$UI/Timer.text = str(stepify(time_elapsed, 0.01))
+	#time_elapsed += delta
+	PlayerVars.timer += delta
+	$UI/Timer.text = str(stepify(PlayerVars.timer, 0.01))
+
+
+func _on_BarTimer_timeout():
+	$UI/Control/ProgressBar.value -= 1
+	if($UI/Control/ProgressBar.value == 0):
+		respawn()
