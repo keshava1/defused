@@ -13,5 +13,5 @@ func _ready():
 func _on_Spike_body_entered(body):
 	if(body.name == "Player"):
 		body.respawn()
-		get_tree().reload_current_scene()
+		
 

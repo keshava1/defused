@@ -12,7 +12,7 @@ const SPRING = -1000
 const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
 var motion = Vector2()
-var deathTimer = 30
+
 #var time_elapsed = PlayerVars.timer
 
 export(int) var DEATH_MIN = 1000
@@ -24,6 +24,9 @@ var canDash = false;
 var dashing = false
 func _ready():
 	print("ready")
+	$Sprite.play("Idle")
+	$Explosion.play("Blank")
+	$deathTween.interpolate_property($Sprite, "modulate", Color(1,1,1,1), Color(1,0,0,1), 0.125, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	if(PlayerVars.muted == false):
 		MusicPlayer.stream_paused = false
 	
@@ -33,14 +36,11 @@ func _ready():
 		$UI/Control.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if(PlayerVars.dying == true):
+		return
 	update_dash()
 	update_timer(delta)
-	
-	
-	deathTimer -=30
-	
-	
-	
+
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -53,7 +53,7 @@ func _physics_process(delta):
 	# fall death
 	if get_position().y > DEATH_MIN or get_position().y < DEATH_MAX:
 		respawn()
-		
+	$Sprite.offset.y = PlayerVars.offset
 	# move left and right
 	if Input.is_action_pressed("ui_right"):
 		if(dashing == false):
@@ -121,8 +121,7 @@ func _physics_process(delta):
 			motion. x = lerp(motion.x, 0, 0.025)
 	# move, then update PlayerVars
 	dash()
-	#print(motion)
-	#if(PlayerVars.live == true):
+
 	motion = move_and_slide(motion, PlayerVars.direction)
 	PlayerVars.canDash = canDash
 	PlayerVars.motion = motion
@@ -138,18 +137,20 @@ func nextToLeftWall():
 	return $LeftWall.is_colliding()
 
 func respawn():
+	PlayerVars.dying = true
 	print("respawn")
-	for i in 10:
-		print("modulate + timeout")
-		$Sprite.modulate = Color(i * 0.1, 0, 0)
-		print("modulate")
-		yield(get_tree().create_timer(1), "timeout")
-		print("timeout")
+	$deathTween.start()
+	yield($deathTween, "tween_completed")
+	$Sprite.play("Blank")
+	$Explosion.play("Explosion")
+	yield($Explosion, "animation_finished")
+	$Explosion.play("Blank")
 	PlayerVars.deaths += 1
 	PlayerVars.reset()
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
 	jumps = PlayerVars.jumps
+	PlayerVars.dying = false
 	get_tree().reload_current_scene()
 	
 	

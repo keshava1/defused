@@ -9,15 +9,15 @@ var direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite.play("dinowalk")
 
 func _physics_process(delta):
 	velocity.x = SPEED * direction
 	if(direction == 1):
-		$AnimatedSprite.flip_h = false
-	else:
 		$AnimatedSprite.flip_h = true
-	$AnimatedSprite.play("walk")
+	else:
+		$AnimatedSprite.flip_h = false
+	$AnimatedSprite.play("dinowalk")
 	
 	velocity.y += GRAVITY
 	
@@ -43,4 +43,4 @@ func _physics_process(delta):
 func _on_Body_body_entered(body):
 	if(body.name == "Player"):
 		body.respawn()
-		get_tree().reload_current_scene()
+

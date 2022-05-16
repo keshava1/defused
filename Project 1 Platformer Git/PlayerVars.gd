@@ -10,12 +10,13 @@ var vFlip = false
 var jump = -500
 var walljumpx = 400
 var wallJumpY = 400
-var live = true
+var offset = 0
 var timer = 0
-var muted = false
+var muted = true
 var temp = 0
 var deaths = 0
 var hardMode = false
+var dying = false
 #score variables
 var score1 = 0
 var score2 = 0
@@ -33,6 +34,7 @@ func upGravity():
 	jump = 500
 	#walljumpx = -400
 	wallJumpY = -400
+	offset = 40
 # make gravity downwards
 func downGravity():
 	print("gravity down")
@@ -42,6 +44,7 @@ func downGravity():
 	jump = -500
 	#walljumpx = 400
 	wallJumpY = 400
+	offset = 0
 #on ready, make gravity down
 func _ready():
 	downGravity()
@@ -56,7 +59,8 @@ func reset():
 	jump = -500
 	walljumpx = 400
 	wallJumpY = 400
-	live = true
+	dying = false
+	offset = 0
 #check for exit, mute, and more
 func _physics_process(delta):
 	if( Input.is_action_just_pressed("ui_cancel")):
