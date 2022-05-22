@@ -12,7 +12,7 @@ const SPRING = -1000
 const DASH_LENGTH = 750
 var jumps = MAX_JUMPS
 var motion = Vector2()
-
+var started
 #var time_elapsed = PlayerVars.timer
 
 export(int) var DEATH_MIN = 1000
@@ -24,22 +24,24 @@ var canDash = false;
 var dashing = false
 func _ready():
 	print("ready")
+	started = false
 	$Sprite.play("Idle")
 	$Explosion.play("Blank")
 	$deathTween.interpolate_property($Sprite, "modulate", Color(1,1,1,1), Color(1,0,0,1), 0.125, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	if(PlayerVars.muted == false):
 		MusicPlayer.stream_paused = false
-	
+	PlayerVars.hardMode = true
 	if(PlayerVars.hardMode):
 		$UI/Control/BarTimer.autostart = true
 	else:
-		$UI/Control.visible = false
+		$UI/Control.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(PlayerVars.dying == true):
 		return
 	update_dash()
-	update_timer(delta)
+	if(started):
+		update_timer(delta)
 
 	# retrive playerVars
 	canDash = PlayerVars.canDash
@@ -56,11 +58,17 @@ func _physics_process(delta):
 	$Sprite.offset.y = PlayerVars.offset
 	# move left and right
 	if Input.is_action_pressed("ui_right"):
+		
+		started = true
+		
 		if(dashing == false):
 			motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
 	elif Input.is_action_pressed("ui_left"):
+		
+		started = true
+		
 		if(dashing == false):
 			motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
@@ -79,6 +87,8 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0,0.1);
 		# jump code
 		if Input.is_action_just_pressed("ui_up") and (jumps > 0 or nextToWall()):
+			started = true
+			
 			# wall jumps
 			if (not is_on_floor()) and nextToRightWall():
 				motion.x = -PlayerVars.walljumpx
@@ -209,6 +219,9 @@ func update_timer(delta):
 
 
 func _on_BarTimer_timeout():
-	$UI/Control/ProgressBar.value -= 1
-	if($UI/Control/ProgressBar.value == 0):
-		respawn()
+	if(started):
+		$UI/Control/ProgressBar.value -= 1
+		if($UI/Control/ProgressBar.value == 0):
+			respawn()
+func deathTimerAdd(value):
+	$UI/Control/ProgressBar.value += value

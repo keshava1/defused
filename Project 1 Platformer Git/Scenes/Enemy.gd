@@ -33,6 +33,8 @@ func _physics_process(delta):
 	
 	for body in bodies:
 		if body.name == "Player":
+			if(PlayerVars.hardMode == true):
+				body.deathTimerAdd(25)
 			queue_free()
 			PlayerVars.motion.y -= HEIGHT
 			PlayerVars.canDash = true

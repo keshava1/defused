@@ -13,15 +13,6 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 320, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 6 )
-region = Rect2( 160, 160, 80, 80 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 320, 640, 320, 320 )
-
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 5 )
@@ -32,15 +23,15 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 320, 320 )
 
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 640, 320, 320 )
+
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 960, 320, 320 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 320, 960, 320, 320 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -122,6 +113,15 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 960, 960, 320, 320 )
 
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 6 )
+region = Rect2( 160, 160, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 960, 320, 320 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ SubResource( 24 ) ],
@@ -129,35 +129,35 @@ animations = [ {
 "name": "WallSlide",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 35 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
-"name": "Blank",
-"speed": 6.0
+"name": "Idle",
+"speed": 1.0
 }, {
 "frames": [ SubResource( 23 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 25 ), SubResource( 26 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 1.0
-}, {
 "frames": [ SubResource( 21 ) ],
 "loop": true,
 "name": "Jump2",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "Run",
 "speed": 20.0
+}, {
+"frames": [ SubResource( 35 ) ],
+"loop": true,
+"name": "Blank",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -201,6 +201,7 @@ position = Vector2( 1, -5 )
 scale = Vector2( 0.232812, 0.232812 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -271,17 +272,18 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/Control"]
-margin_left = 78.0
-margin_top = 24.0
-margin_right = 817.0
-margin_bottom = 45.0
+margin_left = 42.0
+margin_top = 88.0
+margin_right = 781.0
+margin_bottom = 109.0
 value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BarTimer" type="Timer" parent="UI/Control"]
-wait_time = 0.1
+wait_time = 0.2
+autostart = true
 
 [node name="deathTween" type="Tween" parent="."]
 

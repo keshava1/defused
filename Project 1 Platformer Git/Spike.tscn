@@ -6,7 +6,7 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -14, 10, 0, -11, 14, 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Spike" type="Node2D"]
 
 [node name="Spike" type="Area2D" parent="."]
 script = ExtResource( 2 )
