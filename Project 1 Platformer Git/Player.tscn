@@ -201,7 +201,6 @@ position = Vector2( 1, -5 )
 scale = Vector2( 0.232812, 0.232812 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -272,10 +271,10 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/Control"]
-margin_left = 42.0
-margin_top = 88.0
-margin_right = 781.0
-margin_bottom = 109.0
+margin_left = 72.0
+margin_top = 15.0
+margin_right = 811.0
+margin_bottom = 36.0
 value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -283,7 +282,6 @@ __meta__ = {
 
 [node name="BarTimer" type="Timer" parent="UI/Control"]
 wait_time = 0.2
-autostart = true
 
 [node name="deathTween" type="Tween" parent="."]
 

@@ -23,9 +23,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 280.0
-margin_top = 153.0
+margin_top = 133.0
 margin_right = 680.0
-margin_bottom = 386.0
+margin_bottom = 406.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 400.0
@@ -38,20 +38,31 @@ align = 1
 margin_top = 117.0
 margin_right = 400.0
 margin_bottom = 153.0
+hint_tooltip = "A casual but challenging experience!"
 custom_fonts/font = ExtResource( 3 )
-text = "Start Game"
+text = "Normal Mode"
 
-[node name="Levels" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Hard Mode" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 157.0
 margin_right = 400.0
 margin_bottom = 193.0
+hint_tooltip = "One life only! Race against the
+clock and get to the end 
+before you explode!"
+custom_fonts/font = ExtResource( 3 )
+text = "Defusal Mode"
+
+[node name="Levels" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 197.0
+margin_right = 400.0
+margin_bottom = 233.0
 custom_fonts/font = ExtResource( 3 )
 text = "Level Select"
 
 [node name="QuitGame" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 197.0
+margin_top = 237.0
 margin_right = 400.0
-margin_bottom = 233.0
+margin_bottom = 273.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit Game"
 
@@ -82,6 +93,7 @@ hframes = 4
 vframes = 4
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Hard Mode" to="." method="_on_Hard_Mode_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]

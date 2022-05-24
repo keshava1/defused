@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=7]
 
 [node name="World2" type="Node"]
 
@@ -120,3 +121,9 @@ position = Vector2( -897, 480 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1694, 198 )
+
+[node name="String" parent="." instance=ExtResource( 7 )]
+position = Vector2( -269, 413 )
+
+[node name="String2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 822, 111 )

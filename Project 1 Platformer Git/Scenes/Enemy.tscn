@@ -51,6 +51,7 @@ extents = Vector2( 13, 9.4 )
 extents = Vector2( 7.25, 10.5 )
 
 [node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 31, -15 )
 scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 2 )
 
@@ -60,9 +61,6 @@ scale = Vector2( 0.145, 0.145 )
 frames = SubResource( 5 )
 animation = "dinowalk"
 flip_h = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="raycast" type="RayCast2D" parent="."]
 position = Vector2( 7.6, 0 )
@@ -74,26 +72,17 @@ position = Vector2( 1.6, -7.2 )
 
 [node name="BounceCol" type="CollisionShape2D" parent="Head"]
 position = Vector2( -4.6, 0.7 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 7 )
 
 [node name="Body" type="Area2D" parent="."]
 position = Vector2( -3.2, 4.8 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="DeathCol" type="CollisionShape2D" parent="Body"]
 position = Vector2( 0.200001, 1.4 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 8 )
 
 [node name="EnemyCol" type="CollisionShape2D" parent="."]
 position = Vector2( -5.15, 5.6 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [connection signal="body_entered" from="Body" to="." method="_on_Body_body_entered"]

@@ -23,6 +23,14 @@ var dashDir = Vector2(1,0)
 var canDash = false;
 var dashing = false
 func _ready():
+	print(PlayerVars.hardMode)
+	if(PlayerVars.hardMode == true):
+		$UI/Control/BarTimer.start()
+		print("hard mode")
+	else:
+		$UI/Control/ProgressBar.visible = false
+		print("hidden bar")
+		$UI/Control.queue_free()
 	print("ready")
 	started = false
 	$Sprite.play("Idle")
@@ -30,11 +38,8 @@ func _ready():
 	$deathTween.interpolate_property($Sprite, "modulate", Color(1,1,1,1), Color(1,0,0,1), 0.125, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	if(PlayerVars.muted == false):
 		MusicPlayer.stream_paused = false
-	PlayerVars.hardMode = true
-	if(PlayerVars.hardMode):
-		$UI/Control/BarTimer.autostart = true
-	else:
-		$UI/Control.queue_free()
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(PlayerVars.dying == true):
@@ -161,7 +166,10 @@ func respawn():
 	motion = PlayerVars.motion
 	jumps = PlayerVars.jumps
 	PlayerVars.dying = false
-	get_tree().reload_current_scene()
+	if(PlayerVars.hardMode == true):
+		get_tree().change_scene("res://Scenes/World7.tscn")
+	else:
+		get_tree().reload_current_scene()
 	
 	
 var ghost_scene = preload("res://Scenes/DashGhost.tscn")
@@ -224,4 +232,6 @@ func _on_BarTimer_timeout():
 		if($UI/Control/ProgressBar.value == 0):
 			respawn()
 func deathTimerAdd(value):
-	$UI/Control/ProgressBar.value += value
+	print(PlayerVars.hardMode)
+	if(PlayerVars.hardMode == true):
+		$UI/Control/ProgressBar.value += value
