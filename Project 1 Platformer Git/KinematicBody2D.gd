@@ -26,9 +26,10 @@ func _ready():
 	print(PlayerVars.hardMode)
 	if(PlayerVars.hardMode == true):
 		$UI/Control/BarTimer.start()
+		$UI/Control/Spark.position = $UI/Control/ProgressBar.get_rect().position
 		print("hard mode")
 	else:
-		$UI/Control/ProgressBar.visible = false
+		$UI/Control.visible = false
 		print("hidden bar")
 		$UI/Control.queue_free()
 	print("ready")
@@ -166,10 +167,10 @@ func respawn():
 	motion = PlayerVars.motion
 	jumps = PlayerVars.jumps
 	PlayerVars.dying = false
-	if(PlayerVars.hardMode == true):
-		get_tree().change_scene("res://Scenes/World7.tscn")
-	else:
-		get_tree().reload_current_scene()
+	#if(PlayerVars.hardMode == true):
+	#	get_tree().change_scene("res://Scenes/World7.tscn")
+	#else:
+	get_tree().reload_current_scene()
 	
 	
 var ghost_scene = preload("res://Scenes/DashGhost.tscn")
@@ -229,6 +230,7 @@ func update_timer(delta):
 func _on_BarTimer_timeout():
 	if(started):
 		$UI/Control/ProgressBar.value -= 1
+		$UI/Control/Spark.position.x = $UI/Control/ProgressBar.get_rect().position.x + $UI/Control/ProgressBar.value * $UI/Control.rect_size.x * 0.1
 		if($UI/Control/ProgressBar.value == 0):
 			respawn()
 func deathTimerAdd(value):
