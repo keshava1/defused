@@ -229,6 +229,7 @@ position = Vector2( 1, -5 )
 scale = Vector2( 0.232812, 0.232812 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -303,7 +304,7 @@ wait_time = 0.2
 [node name="ProgressBar" type="TextureProgress" parent="UI/Control"]
 margin_left = 71.0
 margin_top = 14.0
-margin_right = 795.0
+margin_right = 871.0
 margin_bottom = 32.0
 value = 100.0
 texture_progress = ExtResource( 7 )
@@ -314,7 +315,6 @@ __meta__ = {
 
 [node name="Spark" type="AnimatedSprite" parent="UI/Control"]
 frames = SubResource( 40 )
-frame = 3
 playing = true
 
 [node name="deathTween" type="Tween" parent="."]

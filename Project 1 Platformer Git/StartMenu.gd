@@ -5,8 +5,8 @@ extends Control
 func _on_StartGame_pressed():
 	PlayerVars.timer = 0
 	PlayerVars.deaths = 0
-	PlayerVars.hardMode = false
-	get_tree().change_scene("res://Scenes/World7.tscn")
+	
+	get_tree().change_scene("res://World.tscn")
 	
 
 
@@ -23,7 +23,6 @@ func _on_Leaderboard_pressed():
 
 
 func _on_Hard_Mode_pressed():
-	PlayerVars.timer = 0
-	PlayerVars.deaths = 0
+
 	PlayerVars.hardMode = true
-	get_tree().change_scene("res://Scenes/World7.tscn")
+	_on_StartGame_pressed()

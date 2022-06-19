@@ -1,12 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=3]
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 6 )
 
 [node name="World" type="Node"]
 
@@ -15,7 +24,7 @@ position = Vector2( 64, 224 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1792, 32 )
-next_world = "res://World2.tscn"
+next_world = "res://Scenes/World7.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -105,8 +114,61 @@ rotation = 1.5708
 
 [node name="Spring" parent="Springs" instance=ExtResource( 5 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 188, 270 )
-
 [node name="String" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1213, 216 )
+
+[node name="Instructions" type="Node2D" parent="."]
+position = Vector2( 233, 385 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Instructions"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+
+[node name="Instructions" type="Label" parent="Instructions"]
+margin_left = -46.0
+margin_top = -368.0
+margin_right = 196.0
+margin_bottom = -136.0
+custom_fonts/font = SubResource( 1 )
+text = "Instructions:
+Arrow Keys/Joystick to 
+move
+Up/B to jump and double 
+jump
+Space/Y to dash
+Jump on walls to wall
+jump
+M to mute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="End" type="Node2D" parent="."]
+position = Vector2( 1090, 258 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="End"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+
+[node name="Instructions" type="Label" parent="End"]
+margin_left = -24.0
+margin_top = -296.0
+margin_right = 218.0
+margin_bottom = -64.0
+custom_fonts/font = SubResource( 2 )
+text = "Touch the fire 
+extinguisher to go to 
+the next level!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

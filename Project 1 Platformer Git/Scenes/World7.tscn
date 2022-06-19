@@ -197,66 +197,13 @@ rotation = 1.5708
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3700, 32 )
-next_world = "res://World.tscn"
+next_world = "res://World2.tscn"
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 443, -43 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2851, 15 )
-
-[node name="Instructions" type="Node2D" parent="."]
-position = Vector2( 66, 128 )
-z_index = -1
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Instructions"]
-position = Vector2( 66, -256 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
-
-[node name="Instructions" type="Label" parent="Instructions"]
-margin_left = -46.0
-margin_top = -368.0
-margin_right = 196.0
-margin_bottom = -136.0
-custom_fonts/font = SubResource( 1 )
-text = "Instructions:
-Arrow Keys/Joystick to 
-move
-Up/B to jump and double 
-jump
-Space/Y to dash
-Jump on walls to wall
-jump
-M to mute"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="End" type="Node2D" parent="."]
-position = Vector2( 3562, 64 )
-z_index = -1
-
-[node name="Sprite" type="Sprite" parent="End"]
-position = Vector2( 66, -256 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
-
-[node name="Instructions" type="Label" parent="End"]
-margin_left = -24.0
-margin_top = -296.0
-margin_right = 218.0
-margin_bottom = -64.0
-custom_fonts/font = SubResource( 1 )
-text = "Touch the fire 
-extinguisher to go to 
-the next level!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="String" parent="." instance=ExtResource( 9 )]
 position = Vector2( 314, -32 )
@@ -266,3 +213,78 @@ position = Vector2( 1666, -64 )
 
 [node name="String3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2370, -896 )
+
+[node name="Jump!" type="Node2D" parent="."]
+position = Vector2( 394, -120 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Jump!"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Instructions" type="Label" parent="Jump!"]
+margin_left = -40.0
+margin_top = -288.0
+margin_right = 202.0
+margin_bottom = -56.0
+custom_fonts/font = SubResource( 1 )
+text = "Jump on the dinosaur
+and up the steps!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump!2" type="Node2D" parent="."]
+position = Vector2( 1618, -160 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Jump!2"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Instructions" type="Label" parent="Jump!2"]
+margin_left = -40.0
+margin_top = -312.0
+margin_right = 202.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 1 )
+text = "Double jump off the
+spring, then hold right
+and press up to jump
+up the wall!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump!3" type="Node2D" parent="."]
+position = Vector2( 2930, -96 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Jump!3"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Instructions" type="Label" parent="Jump!3"]
+margin_left = -40.0
+margin_top = -288.0
+margin_right = 202.0
+margin_bottom = -56.0
+custom_fonts/font = SubResource( 1 )
+text = "Use your dash to get
+through the tight 
+space!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

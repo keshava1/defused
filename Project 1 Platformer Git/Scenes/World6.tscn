@@ -303,11 +303,14 @@ springDirection = 1
 [node name="GravitySwitch2" parent="Gravity + Springs" instance=ExtResource( 5 )]
 position = Vector2( -120, -448 )
 
+[node name="String2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -483, -267 )
+
+[node name="String3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1350, -1397 )
+
 [node name="String" parent="." instance=ExtResource( 7 )]
 position = Vector2( -988, -1021 )
 
-[node name="String" parent="String" instance=ExtResource( 7 )]
-position = Vector2( 505, 754 )
-
-[node name="String2" parent="String" instance=ExtResource( 7 )]
-position = Vector2( -362, -376 )
+[node name="String4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -959, -777 )
