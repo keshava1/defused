@@ -13,7 +13,7 @@ var wallJumpY = 400
 var offset = 0
 var timer = 0
 var muted = true
-var temp = 0
+var temp = 0.0
 var deaths = 0
 var hardMode = false
 var dying = false
@@ -48,6 +48,13 @@ func downGravity():
 #on ready, make gravity down
 func _ready():
 	downGravity()
+	if(muted == true):
+		temp = MusicPlayer.get_playback_position()
+		MusicPlayer.stop()
+		print("muted")
+	else:
+		print("unmuted")
+		MusicPlayer.play(temp)
 #resets vars
 func reset():
 	jumps = 2
@@ -67,14 +74,15 @@ func _physics_process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("ui_mute"):
 		if(muted == false):
-			muted = true
 			temp = MusicPlayer.get_playback_position()
 			MusicPlayer.stop()
 			print("muted")
 		else:
 			print("unmuted")
 			MusicPlayer.play(temp)
-			muted = false
+		muted = !muted
+
+
 
 #add a new score
 func newScore(score):

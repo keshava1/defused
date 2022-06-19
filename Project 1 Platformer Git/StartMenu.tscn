@@ -81,8 +81,8 @@ __meta__ = {
 modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
-position = Vector2( 480.932, 275 )
-scale = Vector2( 1.49041, 1.49041 )
+position = Vector2( 479.5, 270.5 )
+scale = Vector2( 1.49844, 1.47671 )
 z_index = -1
 texture = ExtResource( 5 )
 

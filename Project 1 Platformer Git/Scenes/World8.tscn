@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=1]
 [ext_resource path="res://Spike.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -290,3 +291,12 @@ text = "Congratulations!!!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="String" parent="." instance=ExtResource( 9 )]
+position = Vector2( -148, 525 )
+
+[node name="String2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 708, 1084 )
+
+[node name="String3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1025, 537 )

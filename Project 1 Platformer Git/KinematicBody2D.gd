@@ -15,6 +15,9 @@ var motion = Vector2()
 var started
 #var time_elapsed = PlayerVars.timer
 
+export(PackedScene) var foot_step
+var last_step = 0
+
 export(int) var DEATH_MIN = 1000
 export(int) var DEATH_MAX = -2000
 #Dash Vars
@@ -27,6 +30,7 @@ func _ready():
 	if(PlayerVars.hardMode == true):
 		$UI/Control/BarTimer.start()
 		$UI/Control/Spark.position = $UI/Control/ProgressBar.get_rect().position
+		$UI/Control/Spark.position.y += 9
 		print("hard mode")
 	else:
 		$UI/Control.visible = false
@@ -71,6 +75,8 @@ func _physics_process(delta):
 			motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 		$Sprite.play("Run")
+		
+
 	elif Input.is_action_pressed("ui_left"):
 		
 		started = true
@@ -137,7 +143,7 @@ func _physics_process(delta):
 			motion. x = lerp(motion.x, 0, 0.025)
 	# move, then update PlayerVars
 	dash()
-
+	particles()
 	motion = move_and_slide(motion, PlayerVars.direction)
 	PlayerVars.canDash = canDash
 	PlayerVars.motion = motion
@@ -218,22 +224,48 @@ func _on_Timer_timeout():
 
 func update_dash():
 	if(PlayerVars.canDash):
-		$UI/DashSprite.visible = true
+		$UI/DashSprite.modulate = Color(1, 1, 1, 1)
 	else:
-		$UI/DashSprite.visible = false
+		$UI/DashSprite.modulate = Color(1, 1, 1, 0.25)
 func update_timer(delta):
 	#time_elapsed += delta
 	PlayerVars.timer += delta
-	$UI/Timer.text = str(stepify(PlayerVars.timer, 0.01))
+	$UI/Timer.text = str(stepify(PlayerVars.timer, 1))
 
 
 func _on_BarTimer_timeout():
 	if(started):
 		$UI/Control/ProgressBar.value -= 1
-		$UI/Control/Spark.position.x = $UI/Control/ProgressBar.get_rect().position.x + $UI/Control/ProgressBar.value * $UI/Control.rect_size.x * 0.1
+		$UI/Control/Spark.position.x = $UI/Control/ProgressBar.get_rect().position.x + $UI/Control/ProgressBar.value * $UI/Control/ProgressBar.rect_size.x * 0.01
+		$UI/Control/Spark.position.y = $UI/Control/ProgressBar.get_rect().position.y + 9
 		if($UI/Control/ProgressBar.value == 0):
 			respawn()
 func deathTimerAdd(value):
 	print(PlayerVars.hardMode)
 	if(PlayerVars.hardMode == true):
 		$UI/Control/ProgressBar.value += value
+		
+func particles():
+	if(PlayerVars.vFlip == true):
+		print("up")
+	else:
+		print("down")
+	if(motion == Vector2(0,0)):
+		last_step = -1
+	if$Sprite.animation == "Run" and is_on_floor():
+		var f = $Sprite.frame
+		if(f == 0 or f == 8):
+			if(last_step != $Sprite.frame):
+				last_step = $Sprite.frame
+				var step = foot_step.instance()
+				step.emitting = true
+				step.global_position = Vector2(global_position)
+				if(PlayerVars.vFlip == true):
+					step.global_position.y -=35
+					step.process_material.direction.y = 1
+				else:
+					step.global_position.y += 30
+					step.process_material.direction.y = -1
+				
+				get_parent().add_child(step)
+			
