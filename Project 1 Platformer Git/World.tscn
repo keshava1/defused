@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Instructions.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -120,6 +121,7 @@ position = Vector2( 1213, 216 )
 [node name="Instructions" type="Node2D" parent="."]
 position = Vector2( 233, 385 )
 z_index = -1
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -151,6 +153,7 @@ __meta__ = {
 [node name="End" type="Node2D" parent="."]
 position = Vector2( 1090, 258 )
 z_index = -1
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }

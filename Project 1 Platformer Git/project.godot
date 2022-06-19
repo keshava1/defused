@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Project 1 Platformer"
+config/name="Defused"
 run/main_scene="res://StartMenu.tscn"
 config/icon="res://Sprites/bomb guy icon.png"
 config/windows_native_icon="res://Sprites/bomb guy icon.png"

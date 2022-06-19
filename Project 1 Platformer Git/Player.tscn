@@ -21,15 +21,20 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 320, 320, 320 )
-
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 960, 320, 320 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 640, 320, 320 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 320, 320, 320 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
@@ -120,11 +125,6 @@ region = Rect2( 960, 960, 320, 320 )
 atlas = ExtResource( 6 )
 region = Rect2( 160, 160, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 320, 640, 320, 320 )
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ SubResource( 25 ), SubResource( 26 ) ],
@@ -132,14 +132,19 @@ animations = [ {
 "name": "Idle",
 "speed": 1.0
 }, {
-"frames": [ SubResource( 24 ) ],
-"loop": true,
-"name": "WallSlide",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 21 ) ],
 "loop": true,
 "name": "Jump2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ) ],
+"loop": true,
+"name": "WallSlide",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 20 ) ],
@@ -156,11 +161,6 @@ animations = [ {
 "loop": true,
 "name": "Blank",
 "speed": 6.0
-}, {
-"frames": [ SubResource( 23 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -315,6 +315,7 @@ __meta__ = {
 
 [node name="Spark" type="AnimatedSprite" parent="UI/Control"]
 frames = SubResource( 40 )
+frame = 3
 playing = true
 
 [node name="deathTween" type="Tween" parent="."]

@@ -254,7 +254,7 @@ position = Vector2( 1696, 95 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2080, 32 )
-next_world = "res://Scenes/World5.tscn"
+next_world = "res://World2.tscn"
 
 [node name="String" parent="." instance=ExtResource( 7 )]
 position = Vector2( 896, -268 )
