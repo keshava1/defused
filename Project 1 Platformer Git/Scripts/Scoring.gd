@@ -14,6 +14,11 @@ func _ready():
 	var points = 9999 - int(time)*2 - deaths*10
 	$VBoxContainer/Points.text = "9,999 points\n-\n" + str(time) + " seconds\n-\n" + str(deaths) + " deaths\n=\n" + str(points) + " points"
 	PlayerVars.newScore(points)
+	
+	if(PlayerVars.twoP == false):
+		$H.visible = false
+	else:
+		$N.visible = false
 #func _process(delta):
 #	if(Input.is_action_just_pressed("ui_accept")):
 #		MusicPlayer.stop()
