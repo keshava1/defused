@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Instructions.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -172,6 +173,35 @@ custom_fonts/font = SubResource( 2 )
 text = "Touch the fire 
 extinguisher to go to 
 the next level!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crab" parent="." instance=ExtResource( 10 )]
+position = Vector2( 559, 497 )
+
+[node name="Crab2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1403, 165 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="mp" type="Sprite" parent="Node2D"]
+self_modulate = Color( 0.827451, 0, 1, 1 )
+position = Vector2( 545, 137 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
+mp = true
+
+[node name="Instructions" type="Label" parent="Node2D/mp"]
+margin_left = -128.0
+margin_top = -42.0
+margin_right = 136.0
+margin_bottom = 190.0
+custom_fonts/font = SubResource( 2 )
+text = "Second player: Click on the 
+crabs using your mouse to
+destroy them!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

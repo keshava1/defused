@@ -22,35 +22,66 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 280.0
+margin_left = 256.0
 margin_top = 133.0
-margin_right = 680.0
+margin_right = 703.0
 margin_bottom = 406.0
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 400.0
+margin_right = 447.0
 margin_bottom = 113.0
 custom_fonts/font = ExtResource( 2 )
 text = "Defused"
 align = 1
 
-[node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="normal" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 117.0
-margin_right = 400.0
+margin_right = 447.0
 margin_bottom = 153.0
+alignment = 1
+
+[node name="StartGame" type="Button" parent="CenterContainer/VBoxContainer/normal"]
+margin_right = 400.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 400, 36 )
 hint_tooltip = "A casual but challenging experience!"
 custom_fonts/font = ExtResource( 3 )
 text = "Normal Mode"
 
-[node name="Hard Mode" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="2PN" type="Button" parent="CenterContainer/VBoxContainer/normal"]
+margin_left = 404.0
+margin_right = 447.0
+margin_bottom = 36.0
+hint_tooltip = "A second player joins the fray!
+Play with a mouse and click on
+the crabs to destroy them!"
+custom_fonts/font = ExtResource( 3 )
+text = "2P"
+
+[node name="hard" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 157.0
-margin_right = 400.0
+margin_right = 447.0
 margin_bottom = 193.0
-hint_tooltip = "One life only! Race against the
+
+[node name="Hard Mode" type="Button" parent="CenterContainer/VBoxContainer/hard"]
+margin_right = 400.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 400, 36 )
+hint_tooltip = "Race against the
 clock and get to the end 
 before you explode!"
 custom_fonts/font = ExtResource( 3 )
 text = "Defusal Mode"
+
+[node name="2PH" type="Button" parent="CenterContainer/VBoxContainer/hard"]
+margin_left = 404.0
+margin_right = 447.0
+margin_bottom = 36.0
+hint_tooltip = "Like normal two player, but
+destroying crabs uses part of
+your fuse!"
+custom_fonts/font = ExtResource( 3 )
+text = "2P"
 
 [node name="Levels" type="Button" parent="CenterContainer/VBoxContainer"]
 visible = false
@@ -62,7 +93,7 @@ text = "Level Select"
 
 [node name="Leaderboard" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 197.0
-margin_right = 400.0
+margin_right = 447.0
 margin_bottom = 233.0
 custom_fonts/font = ExtResource( 3 )
 text = "Leaderboard"
@@ -72,7 +103,7 @@ __meta__ = {
 
 [node name="QuitGame" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 237.0
-margin_right = 400.0
+margin_right = 447.0
 margin_bottom = 273.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit Game"
@@ -87,13 +118,15 @@ z_index = -1
 texture = ExtResource( 5 )
 
 [node name="Sprite2" type="Sprite" parent="Node2D"]
-position = Vector2( 239, 266 )
+position = Vector2( 181, 266 )
 texture = ExtResource( 4 )
 hframes = 4
 vframes = 4
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Hard Mode" to="." method="_on_Hard_Mode_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/normal/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/normal/2PN" to="." method="_on_2PN_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/hard/Hard Mode" to="." method="_on_Hard_Mode_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/hard/2PH" to="." method="_on_2PH_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]

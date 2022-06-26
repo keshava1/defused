@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Text box-1.png.png-53c49d30fc2c115326820cc338540bc7.stex"
+path="res://.import/Grass_tileset.png-98535fba926b098413f7d07a7020d95b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Text box-1.png.png"
-dest_files=[ "res://.import/Text box-1.png.png-53c49d30fc2c115326820cc338540bc7.stex" ]
+source_file="res://Sprites/Grass_tileset.png"
+dest_files=[ "res://.import/Grass_tileset.png-98535fba926b098413f7d07a7020d95b.stex" ]
 
 [params]
 

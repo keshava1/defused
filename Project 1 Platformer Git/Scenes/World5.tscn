@@ -28,7 +28,7 @@ gravityDirection = 1
 position = Vector2( 735, -97 )
 
 [node name="GravitySwitch3" parent="Gravity" instance=ExtResource( 2 )]
-position = Vector2( 1568, -96 )
+position = Vector2( 1568, -33 )
 gravityDirection = 1
 
 [node name="Spikes" type="Node2D" parent="."]

@@ -53,6 +53,9 @@ func _physics_process(delta):
 	if(started):
 		update_timer(delta)
 
+	if(PlayerVars.hardMode == true and PlayerVars.fuseAdd != 0):
+		deathTimerAdd(PlayerVars.fuseAdd)
+		PlayerVars.fuseAdd = 0
 	# retrive playerVars
 	canDash = PlayerVars.canDash
 	motion = PlayerVars.motion
@@ -246,10 +249,10 @@ func deathTimerAdd(value):
 		$UI/Control/ProgressBar.value += value
 		
 func particles():
-	if(PlayerVars.vFlip == true):
-		print("up")
-	else:
-		print("down")
+	#if(PlayerVars.vFlip == true):
+		#print("up")
+	#else:
+		#print("down")
 	if(motion == Vector2(0,0)):
 		last_step = -1
 	if$Sprite.animation == "Run" and is_on_floor():

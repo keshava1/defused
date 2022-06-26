@@ -14,7 +14,11 @@ func _ready():
 	$CenterContainer/VBoxContainer/S3.text = "3rd place: " + str(PlayerVars.score3)
 	$CenterContainer/VBoxContainer/S4.text = "4th place: " + str(PlayerVars.score4)
 	$CenterContainer/VBoxContainer/S5.text = "5th place: " + str(PlayerVars.score5)
-func _process(delta):
-	#wait for user input to switch back to main scene
-	if(Input.is_action_just_pressed("ui_accept")):
-		get_tree().change_scene("res://StartMenu.tscn")
+#func _process(delta):
+#	#wait for user input to switch back to main scene
+#	if(Input.is_action_just_pressed("ui_accept")):
+#		get_tree().change_scene("res://StartMenu.tscn")
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://StartMenu.tscn")

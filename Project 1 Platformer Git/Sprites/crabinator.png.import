@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Text box-1.png.png-53c49d30fc2c115326820cc338540bc7.stex"
+path="res://.import/crabinator.png-3546019cdf7d9b0d03fa1a016b219523.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Text box-1.png.png"
-dest_files=[ "res://.import/Text box-1.png.png-53c49d30fc2c115326820cc338540bc7.stex" ]
+source_file="res://Sprites/crabinator.png"
+dest_files=[ "res://.import/crabinator.png-3546019cdf7d9b0d03fa1a016b219523.stex" ]
 
 [params]
 

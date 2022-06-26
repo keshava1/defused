@@ -66,7 +66,6 @@ position = Vector2( 1.6, -7.2 )
 
 [node name="BounceCol" type="CollisionShape2D" parent="Head"]
 position = Vector2( -1.6, -4.4 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 7 )
 
 [node name="Body" type="Area2D" parent="."]
@@ -74,7 +73,6 @@ position = Vector2( -3.2, 4.8 )
 
 [node name="DeathCol" type="CollisionShape2D" parent="Body"]
 position = Vector2( 3.2, -4.8 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 8 )
 
 [node name="EnemyCol" type="CollisionShape2D" parent="."]

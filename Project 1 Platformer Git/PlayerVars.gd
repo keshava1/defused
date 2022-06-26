@@ -17,6 +17,8 @@ var temp = 0.0
 var deaths = 0
 var hardMode = false
 var dying = false
+var twoP = false
+var fuseAdd = 0
 #score variables
 var score1 = 0
 var score2 = 0
@@ -68,6 +70,7 @@ func reset():
 	wallJumpY = 400
 	dying = false
 	offset = 0
+
 #check for exit, mute, and more
 func _physics_process(delta):
 	if( Input.is_action_just_pressed("ui_cancel")):
@@ -81,6 +84,15 @@ func _physics_process(delta):
 			print("unmuted")
 			MusicPlayer.play(temp)
 		muted = !muted
+	if Input.is_action_just_pressed("ui_exit"):
+		twoP = false
+		hardMode = false
+		timer = 0
+		deaths = 0
+		MusicPlayer.stop()
+		temp = 0
+		muted = true
+		get_tree().change_scene("res://StartMenu.tscn")
 
 
 
