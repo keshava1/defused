@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+# costants for method
 const UP = Vector2(0, -1)
 #usually 275
 const MAX_SPEED = 275
@@ -18,13 +20,15 @@ var started
 export(PackedScene) var foot_step
 var last_step = 0
 
+#export deth min and death max that can depend based on the level if player falls off
 export(int) var DEATH_MIN = 1000
 export(int) var DEATH_MAX = -2000
-#Dash Vars
 
+# dash variables
 var dashDir = Vector2(1,0)
 var canDash = false;
 var dashing = false
+
 func _ready():
 	print(PlayerVars.hardMode)
 	if(PlayerVars.hardMode == true):
@@ -52,7 +56,7 @@ func _physics_process(delta):
 	update_dash()
 	if(started):
 		update_timer(delta)
-
+	#update fuse for crabs in hardmode
 	if(PlayerVars.hardMode == true and PlayerVars.fuseAdd != 0):
 		deathTimerAdd(PlayerVars.fuseAdd)
 		PlayerVars.fuseAdd = 0
@@ -144,23 +148,23 @@ func _physics_process(delta):
 		# friction code (is player not pressing anything?)
 		if friction == true and dashing == false:
 			motion. x = lerp(motion.x, 0, 0.025)
-	# move, then update PlayerVars
+	# start dash and particles, move, then update PlayerVars
 	dash()
 	particles()
 	motion = move_and_slide(motion, PlayerVars.direction)
 	PlayerVars.canDash = canDash
 	PlayerVars.motion = motion
 	PlayerVars.jumps = jumps
-
+#for walljump, if player is next to any wall
 func nextToWall():
 	return nextToRightWall() or nextToLeftWall()
-
+#for wall jump, if player is next to right wall
 func nextToRightWall():
 	return $RightWall.is_colliding()
-
+#for walljump, if the player is next to left wall
 func nextToLeftWall():
 	return $LeftWall.is_colliding()
-
+#respawns the player
 func respawn():
 	PlayerVars.dying = true
 	print("respawn")
@@ -181,9 +185,10 @@ func respawn():
 	#else:
 	get_tree().reload_current_scene()
 	
-	
+# preload the dash scene
 var ghost_scene = preload("res://Scenes/DashGhost.tscn")
 
+#function to have the player dash forward
 func dash():
 	# dashing allowed if is on floor
 	if(is_on_floor()):
@@ -210,6 +215,7 @@ func dash():
 		PlayerVars.motion.x = 0
 		ghost_timer.stop()
 		
+#for the dash to have ghost effects behind it
 func instance_ghost(sprite):
 	var ghost : Sprite = ghost_scene.instance() # create ghost scene
 	get_parent().get_parent().add_child(ghost) # add ghost node
@@ -224,51 +230,57 @@ func instance_ghost(sprite):
 func _on_Timer_timeout():
 	instance_ghost($Sprite)
 	
-
+#updates the dash when the player touches the ground
 func update_dash():
 	if(PlayerVars.canDash):
 		$UI/DashSprite.modulate = Color(1, 1, 1, 1)
 	else:
 		$UI/DashSprite.modulate = Color(1, 1, 1, 0.25)
+#pdate the game timer
 func update_timer(delta):
 	#time_elapsed += delta
 	PlayerVars.timer += delta
 	$UI/Timer.text = str(stepify(PlayerVars.timer, 1))
 
-
+#bar timer controls how fast the fuse slows down
 func _on_BarTimer_timeout():
 	if(started):
+		#every time, subtract 1 from the prorgess bar and change the location of the spark
 		$UI/Control/ProgressBar.value -= 1
 		$UI/Control/Spark.position.x = $UI/Control/ProgressBar.get_rect().position.x + $UI/Control/ProgressBar.value * $UI/Control/ProgressBar.rect_size.x * 0.01
 		$UI/Control/Spark.position.y = $UI/Control/ProgressBar.get_rect().position.y + 9
+		#respawn when timer hits 0
 		if($UI/Control/ProgressBar.value == 0):
 			respawn()
+#add or subtract a value to the death timer
 func deathTimerAdd(value):
 	print(PlayerVars.hardMode)
 	if(PlayerVars.hardMode == true):
 		$UI/Control/ProgressBar.value += value
 		
+#looks at player particle efffects
 func particles():
-	#if(PlayerVars.vFlip == true):
-		#print("up")
-	#else:
-		#print("down")
+
+	#if you are not moving, dont trigger effects
 	if(motion == Vector2(0,0)):
 		last_step = -1
+	#if running, do particle effects on frames 0 and 8
 	if$Sprite.animation == "Run" and is_on_floor():
 		var f = $Sprite.frame
 		if(f == 0 or f == 8):
+			#makes sure particle effects dont trigger on slowdown
 			if(last_step != $Sprite.frame):
 				last_step = $Sprite.frame
 				var step = foot_step.instance()
 				step.emitting = true
 				step.global_position = Vector2(global_position)
+				#if the player is upside down
 				if(PlayerVars.vFlip == true):
 					step.global_position.y -=35
 					step.process_material.direction.y = 1
 				else:
 					step.global_position.y += 30
 					step.process_material.direction.y = -1
-				
+				#add particle scene
 				get_parent().add_child(step)
 			

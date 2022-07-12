@@ -15,9 +15,9 @@ var timer = 0
 var muted = true
 var temp = 0.0
 var deaths = 0
-var hardMode = false
+var hardMode = true
 var dying = false
-var twoP = false
+var twoP = true
 var fuseAdd = 0
 #score variables
 var score1 = 0

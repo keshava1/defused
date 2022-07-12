@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GravitySwitch.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Spring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/String.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -96,5 +97,8 @@ position = Vector2( 568, -88 )
 [node name="String2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2384, -16 )
 
-[node name="String3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1152, 184 )
+[node name="Crab" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1160, -32 )
+
+[node name="Crab2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3312, 40 )

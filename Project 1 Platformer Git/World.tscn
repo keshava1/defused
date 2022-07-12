@@ -146,7 +146,7 @@ jump
 Space/Y to dash
 Jump on walls to wall
 jump
-M to mute"
+M/- to toggle music"
 __meta__ = {
 "_edit_use_anchors_": false
 }

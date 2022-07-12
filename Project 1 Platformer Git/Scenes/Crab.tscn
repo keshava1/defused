@@ -3,18 +3,6 @@
 [ext_resource path="res://Scripts/Crab.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/crabinator.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 180, 180, 180, 180 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 360, 180, 180, 180 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 360, 180, 180 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 180, 180 )
@@ -31,16 +19,28 @@ region = Rect2( 360, 0, 180, 180 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 180, 180, 180 )
 
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 180, 180, 180 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 360, 180, 180, 180 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 360, 180, 180 )
+
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "death",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "vibing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "death",
 "speed": 5.0
 } ]
 
