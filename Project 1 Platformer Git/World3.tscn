@@ -374,6 +374,7 @@ position = Vector2( 797, -395 )
 position = Vector2( 1250, -516 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 787, -771 )
 rotation = 3.14159
 scale = Vector2( 2, 2 )

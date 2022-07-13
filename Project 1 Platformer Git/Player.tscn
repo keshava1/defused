@@ -36,11 +36,6 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 320, 320, 320 )
 
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 320, 960, 320, 320 )
-
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
@@ -125,6 +120,11 @@ region = Rect2( 960, 960, 320, 320 )
 atlas = ExtResource( 6 )
 region = Rect2( 160, 160, 80, 80 )
 
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 960, 320, 320 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ SubResource( 25 ), SubResource( 26 ) ],
@@ -147,11 +147,6 @@ animations = [ {
 "name": "WallSlide",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "Run",
@@ -161,6 +156,11 @@ animations = [ {
 "loop": true,
 "name": "Blank",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -221,6 +221,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 10 )
 foot_step = ExtResource( 9 )
 
@@ -229,7 +230,6 @@ position = Vector2( 1, -5 )
 scale = Vector2( 0.232812, 0.232812 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -315,7 +315,6 @@ __meta__ = {
 
 [node name="Spark" type="AnimatedSprite" parent="UI/Control"]
 frames = SubResource( 40 )
-frame = 3
 playing = true
 
 [node name="deathTween" type="Tween" parent="."]

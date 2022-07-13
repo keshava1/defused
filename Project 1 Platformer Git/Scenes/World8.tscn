@@ -280,6 +280,7 @@ next_world = "res://Scenes/Scoring.tscn"
 position = Vector2( 1111, 551 )
 
 [node name="Node2D" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Node2D"]

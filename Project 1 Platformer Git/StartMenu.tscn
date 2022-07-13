@@ -46,7 +46,7 @@ margin_bottom = 36.0
 rect_min_size = Vector2( 400, 36 )
 hint_tooltip = "A casual but challenging experience!"
 custom_fonts/font = ExtResource( 3 )
-text = "Normal Mode"
+text = "Casual Mode"
 
 [node name="2PN" type="Button" parent="CenterContainer/VBoxContainer/normal"]
 margin_left = 404.0
@@ -67,9 +67,9 @@ margin_bottom = 193.0
 margin_right = 400.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 400, 36 )
-hint_tooltip = "Race against the
-clock and get to the end 
-before you explode!"
+hint_tooltip = "Race against the clock with
+a fuse counting down! Collect
+string to delay exploding!"
 custom_fonts/font = ExtResource( 3 )
 text = "Defusal Mode"
 
@@ -95,6 +95,7 @@ text = "Level Select"
 margin_top = 197.0
 margin_right = 447.0
 margin_bottom = 233.0
+hint_tooltip = "View high scores from current session as well as credits!"
 custom_fonts/font = ExtResource( 3 )
 text = "Leaderboard"
 __meta__ = {

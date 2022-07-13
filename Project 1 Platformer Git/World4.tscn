@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DirtAutoTile2.tres" type="TileSet" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Instructions.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Sprites/Text box-1.png.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 11 )
 
 [node name="World4" type="Node2D"]
 
@@ -266,6 +272,7 @@ position = Vector2( 896, -268 )
 position = Vector2( 1470, -90 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1063, 0 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
@@ -274,3 +281,29 @@ script = ExtResource( 9 )
 
 [node name="Crab" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1397, 97 )
+
+[node name="Instructions" type="Node2D" parent="."]
+position = Vector2( 21, 80 )
+z_index = -1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Instructions"]
+position = Vector2( 66, -256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="Instructions" type="Label" parent="Instructions"]
+margin_left = -30.0
+margin_top = -298.0
+margin_right = 212.0
+margin_bottom = -66.0
+custom_fonts/font = SubResource( 1 )
+text = "Some objects return
+your dash and double
+jump in midair!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

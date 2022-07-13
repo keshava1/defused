@@ -12,12 +12,12 @@ var walljumpx = 400
 var wallJumpY = 400
 var offset = 0
 var timer = 0
-var muted = true
+var muted = false
 var temp = 0.0
 var deaths = 0
-var hardMode = true
+var hardMode = false
 var dying = false
-var twoP = true
+var twoP = false
 var fuseAdd = 0
 #score variables
 var score1 = 0
@@ -75,7 +75,7 @@ func reset():
 func _physics_process(delta):
 	if( Input.is_action_just_pressed("ui_cancel")):
 		get_tree().quit()
-	if Input.is_action_just_pressed("ui_mute"):
+	if Input.is_action_just_pressed("ui_mute") and get_tree().current_scene.name != "StartMenu":
 		if(muted == false):
 			temp = MusicPlayer.get_playback_position()
 			MusicPlayer.stop()
@@ -91,7 +91,7 @@ func _physics_process(delta):
 		deaths = 0
 		MusicPlayer.stop()
 		temp = 0
-		muted = true
+		#muted = true
 		get_tree().change_scene("res://StartMenu.tscn")
 
 

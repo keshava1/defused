@@ -138,20 +138,20 @@ margin_top = -368.0
 margin_right = 196.0
 margin_bottom = -136.0
 custom_fonts/font = SubResource( 1 )
-text = "Instructions:
-Arrow Keys/Joystick to 
+text = "Arrow Keys/Joystick:
 move
-Up/B to jump and double 
+Up/B:  jump + double 
 jump
-Space/Y to dash
+Space/Y: dash
 Jump on walls to wall
 jump
-M/- to toggle music"
+M/+: toggle music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="End" type="Node2D" parent="."]
+visible = false
 position = Vector2( 1090, 258 )
 z_index = -1
 script = ExtResource( 9 )
